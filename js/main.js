@@ -1,5 +1,5 @@
 /* ============================================
-   THE NEW DAWN — Main JavaScript
+   A NEW DAWN — Main JavaScript
    Scroll animations, nav, mobile menu
    ============================================ */
 
