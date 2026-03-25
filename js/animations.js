@@ -898,34 +898,7 @@ function initAnimations() {
     }
   });
 
-  // GSAP ScrollTrigger reveal enhancements
-  gsap.utils.toArray('.reveal').forEach(el => {
-    gsap.from(el, {
-      y: 40,
-      opacity: 0,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 85%',
-        toggleActions: 'play none none none'
-      }
-    });
-  });
-
-  gsap.utils.toArray('.reveal-scale').forEach(el => {
-    gsap.from(el, {
-      scale: 0.95,
-      opacity: 0,
-      duration: 1.2,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 85%',
-        toggleActions: 'play none none none'
-      }
-    });
-  });
+  // Reveals handled by CSS IntersectionObserver in main.js — no GSAP override
 }
 
 // Boot
