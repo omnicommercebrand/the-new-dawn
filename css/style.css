@@ -399,6 +399,9 @@ p { max-width: 65ch; }
   letter-spacing: 0.4em;
   color: var(--sacred-gold);
   margin-bottom: var(--space-md);
+  width: 100%;
+  text-align: center;
+  display: block;
   opacity: 0;
   animation: fadeUp 1s var(--ease-out) 0.3s forwards;
 }
