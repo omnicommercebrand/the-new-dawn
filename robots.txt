@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thenewdawn.earth/sitemap.xml
+Sitemap: https://anewdawn.earth/sitemap.xml
