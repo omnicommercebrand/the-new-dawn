@@ -112,6 +112,7 @@ p { max-width: 65ch; }
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.25em;
+  padding-left: 0.25em; /* offset trailing letter-spacing for optical center */
   color: var(--sacred-gold);
   margin-bottom: var(--space-sm);
   text-align: center;
@@ -403,6 +404,7 @@ p { max-width: 65ch; }
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.4em;
+  padding-left: 0.4em; /* offset trailing letter-spacing for optical center */
   color: var(--sacred-gold);
   margin-bottom: var(--space-md);
   width: 100%;
