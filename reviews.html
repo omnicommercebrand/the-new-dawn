@@ -4,97 +4,159 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reviews — What People Are Saying | A New Dawn</title>
-  <meta name="description" content="Read 40+ real reviews from clients of Misty Dawn Merrier (Shakina Ray). Google reviews, Facebook testimonials, and transformation stories from real people.">
+  <meta name="description" content="Read 40+ real reviews from clients of Misty Dawn Merrier (Shakina Ray). Transformation stories from real people — unedited, unfiltered.">
   <link rel="canonical" href="https://anewdawn.earth/reviews">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Reviews — What People Are Saying | A New Dawn">
-  <meta property="og:description" content="40+ real reviews from clients. Google reviews, Facebook testimonials, and transformation stories.">
+  <meta property="og:description" content="40+ real reviews from clients. Transformation stories — unedited, unfiltered.">
   <meta property="og:url" content="https://anewdawn.earth/reviews">
   <meta property="og:site_name" content="A New Dawn">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Reviews | A New Dawn">
-  <meta name="twitter:description" content="40+ real reviews from clients of Shakina Ray.">
+  <meta name="twitter:description" content="40+ real transformation stories from clients of Shakina Ray.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .reviews-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-lg); }
-    @media (min-width: 768px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1100px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
+    .reviews-grid {
+      columns: 1;
+      column-gap: var(--space-lg);
+    }
+    @media (min-width: 768px) { .reviews-grid { columns: 2; } }
+    @media (min-width: 1100px) { .reviews-grid { columns: 3; } }
+
     .review-card {
+      break-inside: avoid;
       background: rgba(201,168,76,0.03);
       border: 1px solid rgba(201,168,76,0.12);
-      border-radius: 8px;
+      border-radius: 12px;
       padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
       transition: border-color 0.3s ease, transform 0.3s ease;
+      position: relative;
     }
-    .review-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-2px); }
-    .review-card__source {
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
+    .review-card:hover {
+      border-color: rgba(201,168,76,0.35);
+      transform: translateY(-3px);
+    }
+
+    .review-card__quote-mark {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      line-height: 1;
       color: var(--sacred-gold);
-      opacity: 0.7;
-      margin-bottom: 0.5rem;
+      opacity: 0.2;
+      position: absolute;
+      top: 0.5rem;
+      left: 1.2rem;
     }
+
     .review-card__text {
       font-family: var(--font-display);
       font-size: 1.05rem;
       font-style: italic;
       color: var(--soft-cream);
-      line-height: 1.7;
+      line-height: 1.75;
       margin-bottom: var(--space-md);
+      padding-top: 1.5rem;
     }
+
+    .review-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
     .review-card__author {
       font-family: var(--font-body);
       font-size: 0.85rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--sacred-gold);
     }
-    .review-card__meta {
-      font-size: 0.75rem;
-      color: var(--muted-text);
-      margin-top: 0.25rem;
-    }
-    .review-card--featured {
-      grid-column: 1 / -1;
-      background: rgba(201,168,76,0.06);
-      border-color: rgba(201,168,76,0.25);
-      padding: var(--space-xl);
-    }
-    .review-card--featured .review-card__text {
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
-    }
-    .source-tabs {
+
+    .review-card__share {
       display: flex;
-      gap: var(--space-sm);
+      gap: 0.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .review-card:hover .review-card__share { opacity: 1; }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: var(--space-xl);
-    }
-    .source-tab {
-      font-family: var(--font-body);
-      font-size: 0.8rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 0.6rem 1.5rem;
-      border: 1px solid rgba(201,168,76,0.3);
-      border-radius: 999px;
-      color: var(--soft-cream);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.25);
       background: transparent;
+      color: var(--sacred-gold);
       cursor: pointer;
-      transition: all 0.3s ease;
+      font-size: 0.7rem;
+      transition: all 0.2s ease;
     }
-    .source-tab:hover, .source-tab.active {
+    .share-btn:hover {
       background: var(--sacred-gold);
       color: var(--deep-earth);
-      border-color: var(--sacred-gold);
     }
+
+    .review-card--hero {
+      background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.02));
+      border-color: rgba(201,168,76,0.3);
+      padding: var(--space-xl);
+      column-span: all;
+      margin-bottom: var(--space-xl);
+    }
+    .review-card--hero .review-card__text {
+      font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+      line-height: 1.8;
+    }
+    .review-card--hero .review-card__quote-mark {
+      font-size: 6rem;
+      opacity: 0.15;
+    }
+
+    .review-counter {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+    .review-counter__number {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 300;
+      color: var(--sacred-gold);
+      line-height: 1;
+    }
+    .review-counter__label {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted-text);
+      margin-top: 0.5rem;
+    }
+
+    .copied-toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--sacred-gold);
+      color: var(--deep-earth);
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      z-index: 9999;
+      transition: transform 0.3s ease;
+      pointer-events: none;
+    }
+    .copied-toast.show { transform: translateX(-50%) translateY(0); }
   </style>
 </head>
 <body>
@@ -109,6 +171,7 @@
         <li><a href="/story">My Story</a></li>
         <li><a href="/transformations">Transformations</a></li>
         <li><a href="/offerings">Offerings</a></li>
+        <li><a href="/reviews">Reviews</a></li>
         <li><a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="nav__cta">Book a Session</a></li>
       </ul>
       <button class="nav__toggle" id="navToggle" aria-label="Menu">
@@ -122,231 +185,361 @@
   <!-- Page Header -->
   <header class="page-header">
     <div class="container container--text">
-      <p class="eyebrow reveal">What People Are Saying</p>
+      <p class="eyebrow reveal">Voices of Transformation</p>
       <h1 class="page-header__title reveal">Real Words.<br>Real <em class="text-gold">Healing</em>.</h1>
       <p class="page-header__subtitle reveal">
-        40+ reviews from real clients across Google and Facebook. Unedited. Unfiltered.
+        Unedited. Unfiltered. From the hearts of those who walked through the door.
       </p>
     </div>
   </header>
 
-  <!-- Filter Tabs -->
+  <!-- Counter -->
   <section class="section">
     <div class="container">
-      <div class="source-tabs">
-        <button class="source-tab active" data-filter="all">All Reviews</button>
-        <button class="source-tab" data-filter="google">Google</button>
-        <button class="source-tab" data-filter="facebook">Facebook</button>
+      <div class="review-counter reveal">
+        <p class="review-counter__number">40+</p>
+        <p class="review-counter__label">Stories of Transformation</p>
       </div>
 
+      <!-- Hero Review -->
+      <div class="review-card review-card--hero reveal" id="review-jessa">
+        <span class="review-card__quote-mark">&ldquo;</span>
+        <p class="review-card__text">
+          Misty truly saved my life. I have struggled with alcohol and drug addiction for over 7 years. I tried EVERYTHING to stop drinking and using. I have been to 7 treatment centres, 6 detox stays, and I&rsquo;ve been hospitalized over 25 times due to overdose or alcohol poisoning, and unfortunately I have had 5 suicide attempts. I truly thought I would never be able to accomplish sobriety. UNTIL my best friend referred me to MISTY!! She cleared some energy from me and connected me to my higher self and since that day I HAVE NOT HAD THE DESIRE OR CRAVING TO CONSUME ALCOHOL OR DRUGS. That is a honest to god MIRACLE. It has been 5 months since I&rsquo;ve touched any mind altering substance. I was spiritually dead inside before seeing her and now I know how important my spiritual self is. Thank you Misty for showing me my true potential. I am forever indebted to you.
+        </p>
+        <div class="review-card__footer">
+          <p class="review-card__author">Jessa Sky</p>
+          <div class="review-card__share">
+            <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+            <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            <button class="share-btn" data-action="facebook" title="Share on Facebook">f</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Masonry Grid -->
       <div class="reviews-grid">
 
-        <!-- FEATURED: Jessa Sky (Google + Facebook) -->
-        <div class="review-card review-card--featured reveal" data-source="google">
-          <p class="review-card__source">Google Review</p>
+        <div class="review-card reveal" id="review-lisa">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;Misty truly saved my life. I have struggled with alcohol and drug addiction for over 7 years. I tried EVERYTHING to stop drinking and using. I have been to 7 treatment centres, 6 detox stays, and I&rsquo;ve been hospitalized over 25 times. I truly thought I would never be able to accomplish sobriety. UNTIL my best friend referred me to MISTY!! She cleared some energy from me and connected me to my higher self and since that day I HAVE NOT HAD THE DESIRE OR CRAVING TO CONSUME ALCOHOL OR DRUGS. That is a honest to god MIRACLE. It has been 5 months since I&rsquo;ve touched any mind altering substance. I was spiritually dead inside before seeing her and now I know how important my spiritual self is.&rdquo;
+            Magical, intentive, intuitive, witty, kind, understanding, youthful, determined, educated, funny, compassionate, soulful are some of the words that best describe this lady. She has changed my life on many levels and she continues to change my life every time we talk. I feel lighter, more optimistic about being me and the world, I feel more empowered to proceed with what I want to do in life. Just hearing her laugh, for me, makes this world an easier place to live &mdash; let alone all the healing modalities and intuitive abilities you can go to her for.
           </p>
-          <p class="review-card__author">&mdash; Jessa Sky</p>
-          <p class="review-card__meta">Sobriety &amp; Spiritual Awakening</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Lisa McSween</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Lisa McSween (Google - NEW) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review &middot; 1 week ago</p>
+        <div class="review-card reveal" id="review-kate">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;Magical, intentive, intuitive, witty, kind, understanding, youthful, determined, educated, funny, compassionate, soulful are some of the words that best describe this lady. She has changed my life on many levels and she continues to change my life every time we talk. I feel lighter, more optimistic about being me and the world, I feel more empowered to proceed with what I want to do in life, I feel more grounded and connected to myself. Just hearing her laugh, for me, makes this world an easier place to live.&rdquo;
+            Connecting with Shakina was one of the best decisions I made for my life. She is a practitioner of the body, mind and soul. With the deep fascia work, she helped relieve chronic pain I had been experiencing for years. I once told her she works like a spiritual programmer &mdash; identifying glitches, old programs that are no longer serving me and helps to install meaningful upgrades! A true divine conduit with tremendous strength to hold space for healing.
           </p>
-          <p class="review-card__author">&mdash; Lisa McSween</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Kate Wentzell</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Kate Wentzell (Google - NEW) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review &middot; 2 weeks ago</p>
+        <div class="review-card reveal" id="review-alexandra">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;Looking back, I can confidently say that connecting with Shakina was one of the best decisions I made for my life. She is a practitioner of the body, mind and soul&hellip;able to facilitate and guide healing through multiple modalities. With the deep fascia work, she helped relieve chronic pain I had been experiencing for years. I once told her she works like a spiritual programmer&hellip; identifying glitches, old programs that are no longer serving me and helps to install meaningful upgrades! A true divine conduit with tremendous strength to hold space for healing.&rdquo;
+            Shakina Ray is just what her name states, a ray of light shining from the heart of the goddess herself. My experience working with Shakina was a game changer. I&rsquo;ve worked with many healers and this ray of light was precise and thorough with an accuracy that had me feeling witnessed to the core of my being. She holds a fierce and tender space of devotional presence that allows for root causes to be unearthed.
           </p>
-          <p class="review-card__author">&mdash; Kate Wentzell</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Alexandra Fatima Mathews</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Asya Smith (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review &middot; 3 months ago</p>
+        <div class="review-card reveal" id="review-asya">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;I can&rsquo;t recommend Misty enough. She is an incredibly gifted and intuitive healer with a powerful ability to connect to ancestral guidance. Through our work together, I&rsquo;ve experienced profound realizations and breakthroughs, including deep inner child healing and powerful clearings of generational trauma I wasn&rsquo;t even aware I was carrying. She has helped me clearly distinguish what is mine to hold and heal versus what does not belong to me, which has been incredibly freeing and transformative.&rdquo;
+            I can&rsquo;t recommend Misty enough. She is an incredibly gifted and intuitive healer with a powerful ability to connect to ancestral guidance. Through our work together, I&rsquo;ve experienced profound realizations and breakthroughs, including deep inner child healing and powerful clearings of generational trauma I wasn&rsquo;t even aware I was carrying. She has helped me clearly distinguish what is mine to hold and heal versus what does not belong to me.
           </p>
-          <p class="review-card__author">&mdash; Asya Smith</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Asya Smith</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Alexandra Mathews (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review</p>
+        <div class="review-card reveal" id="review-kiara">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;Shakina Ray is just what her name states, a ray of light shining from the heart of the goddess herself. My experience working with Shakina was a game changer. I&rsquo;ve worked with many healers and this ray of light was precise and thorough with an accuracy that had me feeling witnessed to the core of my being. She holds a fierce and tender space of devotional presence that allows for root causes to be unearthed.&rdquo;
+            Misty is one of the most gifted healers I have ever had the honour to meet. By witnessing the way she owns her gifts &amp; moves effortlessly between the realms has inspired me to step deeper into my own as well as not fear the spirit world. Her mere being emanates such loving groundedness &amp; compassionate wisdom. She has been a healer, a guide &amp; a teacher for me beyond what I could&rsquo;ve expected.
           </p>
-          <p class="review-card__author">&mdash; Alexandra Mathews</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Kiara Vega</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Kiara Vega (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review</p>
+        <div class="review-card reveal" id="review-nik">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;Misty (Shakinaray) is one of the most gifted healers I have ever had the honour to meet. By witnessing the way she owns her gifts &amp; moves effortlessly between the realms has inspired me to step deeper into my own as well as not fear the spirit world. Her mere being emanates such loving groundedness &amp; compassionate wisdom. She has been a healer, a guide &amp; a teacher for me beyond what I could&rsquo;ve expected. I am infinitely grateful for her.&rdquo;
+            Having worked with many healers internationally as part of my research into healing, I had met and worked with healers of almost every modality. Shakina is particularly graceful and dynamic even when challenged by complex issues. She does not back down from a healing challenge and had worked with me through a number of difficult traumas and spiritual blocks. Her attitude is truly a light in a dark place.
           </p>
-          <p class="review-card__author">&mdash; Kiara Vega</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Nik Swan</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Nik Swan (Facebook) -->
-        <div class="review-card reveal" data-source="facebook">
-          <p class="review-card__source">Facebook &middot; Dec 2024</p>
+        <div class="review-card reveal" id="review-derek">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;Having worked with many healers internationally as part of my research into healing, I had met and worked with healers of almost every modality. Shakina is particularly graceful and dynamic even when challenged by complex issues. She does not back down from a healing challenge and had worked with me through a number of difficult traumas and spiritual blocks. Her attitude is truly a light in a dark place.&rdquo;
+            With a high level of skepticism, and at a crossroads in my spiritual journey, I booked an appointment with Shakinaray. 2 hrs of massage and healing have me feeling better than I have in years. Her tips on outlook, coupled with detoxification, have me headed in the right direction. Thank you Shakinaray for allowing me in your presence and for helping me start the healing process. You are special!
           </p>
-          <p class="review-card__author">&mdash; Nik Swan</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Derek Nipshank</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Derek Nipshank (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review</p>
+        <div class="review-card reveal" id="review-anat">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;With a high level of skepticism, and at a crossroads in my spiritual journey, I booked an appointment with Shakinaray. 2 hrs of massage, and healing have me feeling better than I have in years. Her tips on outlook, coupled with detoxification, have me headed in the right direction. Thank you Shakinaray for allowing me in your presence, and for helping me start the healing process. You are special!&rdquo;
+            If you are ready to understand yourself &amp; your life at a higher level beyond just your feelings &amp; thoughts, I highly recommend Misty. Her powerful intuition &amp; loving energy has her tune into you &amp; understand you in a very caring &amp; illuminating way. Misty is the real deal &amp; clears up confusion to allow in light &amp; clarity on the things in your life that are important to you.
           </p>
-          <p class="review-card__author">&mdash; Derek Nipshank</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Anat Stapleton</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- S S (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review</p>
+        <div class="review-card reveal" id="review-jason">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;Misty is a gifted soul who has immensely powerful intuitive gifts and wisdom. Working with her has allowed me to gain so much insight, support, and advanced my healing to another level. She is able to tune into my energy and needs with ease. I trust her completely. I appreciate her as a healer and now a new friend.&rdquo;
+            Shakina Ray is a 10/10 for healing trauma. Recently she conducted a tele wellness session as I was experiencing sharp pain on my lower left side of my back. I did not realize that childhood trauma would hinder one&rsquo;s lower back chakra. After one session the lower back pain is gone!
           </p>
-          <p class="review-card__author">&mdash; S.S.</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Jason Ritzen</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Anat Stapleton (Facebook) -->
-        <div class="review-card reveal" data-source="facebook">
-          <p class="review-card__source">Facebook</p>
+        <div class="review-card reveal" id="review-bonnie">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;If you are ready to understand yourself &amp; your life at a higher level beyond just your feelings &amp; thoughts, I highly recommend Misty. Her powerful intuition &amp; loving energy has her tune into you &amp; understand you in a very caring &amp; illuminating way. Misty is the real deal &amp; clears up confusion to allow in light &amp; clarity on the things in your life that are important to you.&rdquo;
+            I had the pleasure of working with Misty through the Emotion Code and I am very pleased with this unfolding of my healing journey to have worked through numerous hidden heart walls created from past experiences so that I too may learn how to love again completely. I could actually feel the energy blocks releasing in various parts of my body. My hip isn&rsquo;t bothering me anymore and I had such a good sleep.
           </p>
-          <p class="review-card__author">&mdash; Anat Stapleton</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Bonnie Maureen Auger</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Jason Ritzen (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review</p>
+        <div class="review-card reveal" id="review-ss">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;Shakina Ray is a 10/10 for healing trauma. Recently she conducted a tele wellness session as I was experiencing sharp pain on my lower left side of my back. I did not realize that childhood trauma that I experienced would hinder one&rsquo;s lower back chakra. After one session the lower back pain is gone!&rdquo;
+            Misty is a gifted soul who has immensely powerful intuitive gifts and wisdom. Working with her has allowed me to gain so much insight, support, and advanced my healing to another level. She is able to tune into my energy and needs with ease. I trust her completely.
           </p>
-          <p class="review-card__author">&mdash; Jason Ritzen</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">S.S.</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Bonnie Auger (Facebook) -->
-        <div class="review-card reveal" data-source="facebook">
-          <p class="review-card__source">Facebook</p>
+        <div class="review-card reveal" id="review-jana">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;I had the pleasure of working with Misty through the Emotion Code and I am very pleased with this unfolding of my healing journey to have worked through numerous hidden heart walls created from past experiences so that I too may learn how to love again completely. I am already feeling more joyous and light as well as relaxed. I could actually feel the energy blocks releasing. My hip isn&rsquo;t bothering me anymore and I had such a good sleep.&rdquo;
+            She is more than a massage therapist &mdash; she is a Healer who has a deep passion for her clients health and well being. Every session is unique and tailored to you the client, it&rsquo;s as if she instantly connects with your soul when you walk through her doors. Misty is truly Gifted in her work and she radiates a positive aura that can&rsquo;t be described in words.
           </p>
-          <p class="review-card__author">&mdash; Bonnie Maureen Auger</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Jana Gallant</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Jana Gallant (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review</p>
+        <div class="review-card reveal" id="review-kresimir">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;She is more than a massage therapist &mdash; she is a Healer who has a deep passion for her clients health and well being. Every session is unique and tailored to you the client, it&rsquo;s as if she instantly connects with your soul when you walk through her doors. Misty is truly Gifted in her work and she radiates a positive aura that can&rsquo;t be described in words.&rdquo;
+            She utilized Rainbow Energy on myself and after years of having very little sensations to feel, I now can. She helped me release energy and emotions to do so. With her compassion, heart and warm loving energy, you will be at ease and with her by your side, you will get through your challenges.
           </p>
-          <p class="review-card__author">&mdash; Jana Gallant</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Kresimir Rupcic</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Kresimir Rupcic (Facebook) -->
-        <div class="review-card reveal" data-source="facebook">
-          <p class="review-card__source">Facebook</p>
+        <div class="review-card reveal" id="review-kevin">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;Misty is a wonderful energy worker/healer! She is able to utilize different techniques that is best suited for each individual. She utilized Rainbow Energy on myself and after years of having very little sensations to feel, I now can. She helped me release energy and emotions to do so. With her compassion, heart and warm loving energy, you will be at ease.&rdquo;
+            STOP YOUR SEARCH! Zentuary Wholistics is a standout&hellip; and Misty is the most exceptional massage therapist! There is no &lsquo;cookie-cutter&rsquo; approach with Misty. Her ability to tailor each treatment while listening to the client&rsquo;s perspective is truly unique!
           </p>
-          <p class="review-card__author">&mdash; Kresimir Rupcic</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Kevin Murray</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- J Ritz (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review &middot; 5 months ago</p>
+        <div class="review-card reveal" id="review-miko">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;Misty&rsquo;s has an amazing ability to guide the client through a wellness session and to work on what is needed for one&rsquo;s body, mind and soul is worth every minute to making and co-creating the better version you need to be! I highly recommend everyone to experience ZEntuary Wholistics!&rdquo;
+            If I could give 100 stars, I would. If you are unsure of energy work and not sure if it works for you, Misty is the one to go to. She has a big heart, compassionate and is really driven to help you. I had issues with feeling sensations. After finding some blocks and releasing different energies and emotions, I am starting to feel again.
           </p>
-          <p class="review-card__author">&mdash; J Ritz</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Miko Vukovic</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- SK V (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review</p>
+        <div class="review-card reveal" id="review-terry">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;Misty is the most gifted healer I have ever worked with to solve my body and energy issues. I have made huge gains in a short period of time and am so grateful for her. She has a keen sense of what one needs to heal and helps facilitate that healing with professionalism and compassion.&rdquo;
+            I&rsquo;ve been seeing Misty for 8 months now and she has helped me immensely with my life. She is an angel spirit amongst us and her gifts are truly incredible. I look forward to continuing my healing journey with her.
           </p>
-          <p class="review-card__author">&mdash; S.K.V.</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Terry Morin</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Terry Morin (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review</p>
+        <div class="review-card reveal" id="review-byrdie">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;I&rsquo;ve been seeing Misty for 8 months now and she has helped me immensely with my life. She is an angel spirit amongst us and her gifts are truly incredible. I look forward to continuing my healing journey with her.&rdquo;
+            Shakina Ray is very gifted, her work has helped me work through and towards my own healing. I highly recommend her work &mdash; energy healing, massage therapy &mdash; it was definitely helpful and appreciated. If you have the chance please access her services, I&rsquo;ve recommended her work to so many already.
           </p>
-          <p class="review-card__author">&mdash; Terry Morin</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Byrdie Nepoose</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Kevin Murray (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review</p>
+        <div class="review-card reveal" id="review-jesse">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;STOP YOUR SEARCH! Zentuary Wholistics is a standout&hellip; and Misty is the most exceptional massage therapist! There is no &lsquo;cookie-cutter&rsquo; approach with Misty. Her ability to tailor each treatment while listening to the client&rsquo;s perspective is truly unique!&rdquo;
+            I&rsquo;ve received treatment from about 15 other massage therapists and I&rsquo;m always experiencing the same problems once I leave. She cared to find the reasoning rather than just giving me a quick massage and going on to the next client. Highly recommend!!
           </p>
-          <p class="review-card__author">&mdash; Kevin Murray</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Jesse Paonessa</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Miko Vukovic (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review</p>
+        <div class="review-card reveal" id="review-skv">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;If I could give 100 stars, I would. If you are unsure of energy work and not sure if it works for you, Misty is the one to go to. She has a big heart, compassionate and is really driven to help you. I had issues with feeling sensations. After finding some blocks and releasing different energies and emotions, I am starting to feel again.&rdquo;
+            Misty is the most gifted healer I have ever worked with to solve my body and energy issues. I have made huge gains in a short period of time. She has a keen sense of what one needs to heal and helps facilitate that healing with professionalism and compassion.
           </p>
-          <p class="review-card__author">&mdash; Miko Vukovic</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">S.K.V.</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Byrdie Nepoose (Facebook) -->
-        <div class="review-card reveal" data-source="facebook">
-          <p class="review-card__source">Facebook &middot; Jan 2025</p>
+        <div class="review-card reveal" id="review-peggy">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;Shakina Ray is very gifted, her work has helped me work through and towards my own healing. I highly recommend her work &mdash; energy healing, massage therapy &mdash; it was definitely helpful and appreciated. If you have the chance please access her services, I&rsquo;ve recommended her work to so many already.&rdquo;
+            Zentuary Wholistics has helped me tremendously work through and towards my own healing journey. From group sessions to individual sessions, energy healing to massage therapy, I highly recommend this company, and have already shared their contact personally to others.
           </p>
-          <p class="review-card__author">&mdash; Byrdie Nepoose</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Peggy Nepoose</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Peggy Nepoose (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review</p>
+        <div class="review-card reveal" id="review-raylene">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;Zentuary Wholistics has helped me tremendously work through and towards my own healing journey. From group sessions to individual sessions, energy healing to massage therapy, I highly recommend this company, and have already shared their contact personally to others.&rdquo;
+            She&rsquo;s very knowledgeable, intuitive and exceptional at her craft; she&rsquo;s not afraid to get right into those muscles to ensure you get the most out of your appointment. I&rsquo;ve been going to Misty for about 5 years now, she is truly the best of the best.
           </p>
-          <p class="review-card__author">&mdash; Peggy Nepoose</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Raylene Peredery</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Jesse Paonessa (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review</p>
+        <div class="review-card reveal" id="review-jritz">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;I&rsquo;ve received treatment from about 15 other massage therapists and I&rsquo;m always experiencing the same problems once I leave. She&rsquo;s very professional and takes pride in her work. As I had back problems since I was younger, she cared to find the reasoning rather than just giving me a quick massage and going on to the next client. Highly recommend!!&rdquo;
+            Misty has an amazing ability to guide the client through a wellness session and to work on what is needed for one&rsquo;s body, mind and soul. I highly recommend everyone to experience ZEntuary Wholistics!
           </p>
-          <p class="review-card__author">&mdash; Jesse Paonessa</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">J Ritz</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Raylene Peredery (Google) -->
-        <div class="review-card reveal" data-source="google">
-          <p class="review-card__source">Google Review</p>
+        <div class="review-card reveal" id="review-jon">
+          <span class="review-card__quote-mark">&ldquo;</span>
           <p class="review-card__text">
-            &ldquo;She&rsquo;s very knowledgeable, intuitive and exceptional at her craft; she&rsquo;s not afraid to get right into those muscles to ensure you get the most out of your appointment. I&rsquo;ve been going to Misty for about 5 years now, she is truly the best of the best and not to mention such a beautiful person inside and out!&rdquo;
+            Absolutely the best massage therapist that I&rsquo;ve ever had. She&rsquo;s so in tune with what is going on with my body. She will be my new go-to always!
           </p>
-          <p class="review-card__author">&mdash; Raylene Peredery</p>
+          <div class="review-card__footer">
+            <p class="review-card__author">Jon Tekelenburg</p>
+            <div class="review-card__share">
+              <button class="share-btn" data-action="copy" title="Copy link">&#128279;</button>
+              <button class="share-btn" data-action="twitter" title="Share on X">&#120143;</button>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -388,6 +581,7 @@
             <li><a href="/story">My Story</a></li>
             <li><a href="/transformations">Transformations</a></li>
             <li><a href="/offerings">Offerings</a></li>
+        <li><a href="/reviews">Reviews</a></li>
           </ul>
         </div>
         <div>
@@ -407,26 +601,43 @@
     </div>
   </footer>
 
+  <!-- Toast -->
+  <div class="copied-toast" id="toast">Link copied!</div>
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/animations.js"></script>
   <script>
-    // Filter tabs
-    document.querySelectorAll('.source-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.source-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const filter = tab.dataset.filter;
-        document.querySelectorAll('.review-card').forEach(card => {
-          if (filter === 'all' || card.dataset.source === filter) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
-        });
+    // Share functionality
+    document.querySelectorAll('.share-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const card = e.target.closest('.review-card');
+        const id = card.id;
+        const author = card.querySelector('.review-card__author').textContent;
+        const text = card.querySelector('.review-card__text').textContent.trim().substring(0, 200) + '...';
+        const url = 'https://anewdawn.earth/reviews#' + id;
+        const action = btn.dataset.action;
+
+        if (action === 'copy') {
+          navigator.clipboard.writeText(url).then(() => {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+          });
+        } else if (action === 'twitter') {
+          window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent('"' + text + '" ' + author + ' on working with Shakina Ray') + '&url=' + encodeURIComponent(url), '_blank');
+        } else if (action === 'facebook') {
+          window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank');
+        }
       });
     });
+
+    // Scroll to hash on load
+    if (window.location.hash) {
+      const el = document.querySelector(window.location.hash);
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 500);
+    }
   </script>
 </body>
 </html>
