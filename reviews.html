@@ -72,6 +72,96 @@
       color: var(--muted-text);
       margin-top: 0.5rem;
     }
+    /* Proof Carousel */
+    .proof-scroll {
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(201,168,76,0.3) transparent;
+      margin: 0 calc(-1 * var(--space-md));
+      padding: 0 var(--space-md);
+    }
+    .proof-scroll::-webkit-scrollbar { height: 6px; }
+    .proof-scroll::-webkit-scrollbar-track { background: transparent; }
+    .proof-scroll::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 3px; }
+    .proof-track {
+      display: flex;
+      gap: var(--space-md);
+      padding-bottom: var(--space-sm);
+    }
+    .proof-img {
+      height: 420px;
+      width: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(201,168,76,0.15);
+      cursor: pointer;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      flex-shrink: 0;
+    }
+    .proof-img:hover {
+      transform: scale(1.03);
+      border-color: rgba(201,168,76,0.4);
+    }
+    @media (max-width: 768px) {
+      .proof-img { height: 340px; }
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox__img {
+      max-height: 90vh;
+      max-width: 90vw;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .lightbox__close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      line-height: 1;
+      z-index: 10001;
+    }
+    .lightbox__prev, .lightbox__next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: white;
+      font-size: 3rem;
+      cursor: pointer;
+      padding: 1rem;
+      z-index: 10001;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+    .lightbox__prev:hover, .lightbox__next:hover { opacity: 1; }
+    .lightbox__prev { left: 1rem; }
+    .lightbox__next { right: 1rem; }
+    .lightbox__counter {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.5);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+    }
   </style>
 </head>
 <body>
@@ -324,6 +414,65 @@
     </div>
   </section>
 
+  <!-- Wall of Proof — Instagram Screenshots -->
+  <section class="section section--large" style="background:rgba(30,58,42,0.1);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:var(--space-xl);">
+        <p class="eyebrow reveal">Straight from the DMs</p>
+        <h2 class="reveal">Wall of Proof</h2>
+        <p class="text-muted reveal" style="margin:var(--space-sm) auto 0;max-width:50ch;">Real messages. Real moments. Unedited screenshots from clients after their sessions.</p>
+      </div>
+
+      <div class="proof-scroll reveal">
+        <div class="proof-track">
+          <img src="images/proof-01.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-02.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-03.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-04.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-05.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-06.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-07.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-08.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-09.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-10.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-11.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-12.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-13.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-14.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-15.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-16.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-17.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-18.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-19.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-20.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-21.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-22.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-23.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-24.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-25.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-26.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-27.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-28.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-29.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-30.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-31.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-32.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+          <img src="images/proof-33.jpeg" alt="Client testimonial screenshot" loading="lazy" class="proof-img" tabindex="0">
+        </div>
+      </div>
+      <p class="text-muted text-center reveal" style="margin-top:var(--space-md);font-size:0.8rem;">Scroll to see all 33 screenshots &rarr; Click any image to view full size</p>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" id="lightboxClose">&times;</button>
+    <button class="lightbox__prev" id="lightboxPrev">&#8249;</button>
+    <button class="lightbox__next" id="lightboxNext">&#8250;</button>
+    <img class="lightbox__img" id="lightboxImg" src="" alt="Testimonial screenshot">
+    <p class="lightbox__counter" id="lightboxCounter"></p>
+  </div>
+
   <!-- CTA -->
   <section class="cta-section">
     <div class="container container--text">
@@ -382,5 +531,43 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/animations.js"></script>
+  <script>
+    (() => {
+      const imgs = Array.from(document.querySelectorAll('.proof-img'));
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightboxImg');
+      const lbCounter = document.getElementById('lightboxCounter');
+      let current = 0;
+
+      function open(i) {
+        current = i;
+        lbImg.src = imgs[i].src;
+        lbCounter.textContent = (i + 1) + ' / ' + imgs.length;
+        lb.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        lb.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      function nav(dir) {
+        current = (current + dir + imgs.length) % imgs.length;
+        lbImg.src = imgs[current].src;
+        lbCounter.textContent = (current + 1) + ' / ' + imgs.length;
+      }
+
+      imgs.forEach((img, i) => img.addEventListener('click', () => open(i)));
+      document.getElementById('lightboxClose').addEventListener('click', close);
+      document.getElementById('lightboxPrev').addEventListener('click', () => nav(-1));
+      document.getElementById('lightboxNext').addEventListener('click', () => nav(1));
+      lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+      document.addEventListener('keydown', (e) => {
+        if (!lb.classList.contains('active')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') nav(-1);
+        if (e.key === 'ArrowRight') nav(1);
+      });
+    })();
+  </script>
 </body>
 </html>
