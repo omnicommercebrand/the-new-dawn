@@ -212,11 +212,12 @@ p.eyebrow, p.hero__eyebrow { max-width: none; }
 
 .nav__logo {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 300;
   color: var(--warm-white);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .nav__logo span {
@@ -443,6 +444,43 @@ p.eyebrow, p.hero__eyebrow { max-width: none; }
   margin-right: auto;
   opacity: 0;
   animation: fadeUp 1s var(--ease-out) 0.7s forwards;
+}
+
+.hero__offerings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: var(--space-lg);
+  opacity: 0;
+  animation: fadeUp 1s var(--ease-out) 0.8s forwards;
+}
+
+.hero__offerings span {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--sacred-gold);
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+.hero__offerings span:not(:last-child)::after {
+  content: "\00b7";
+  margin-left: 1.5rem;
+  opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+  .hero__offerings {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .hero__offerings span:not(:last-child)::after {
+    display: none;
+  }
 }
 
 .hero__cta-group {
