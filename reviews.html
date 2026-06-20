@@ -19,6 +19,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- A New Dawn editor overlay: instant theme (prevents color flash) + runtime loader -->
+  <script>(function(){try{var c=localStorage.getItem('nd_theme_cache_v1');if(c){var v=JSON.parse(c),r=document.documentElement;for(var k in v){if(k.charAt(0)==='-'&&typeof v[k]==='string')r.style.setProperty(k,v[k]);}}}catch(e){}})();</script>
+  <script type="module" src="js/overlay-runtime.js"></script>
   <style>
     /* ---- Review Cards ---- */
     .rv {
@@ -220,7 +223,7 @@
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="/" class="nav__logo">A New <span>Dawn.Earth</span></a>
+      <a href="/" class="nav__logo" data-edit="reviews.nav.logo" data-edit-label="Logo Text" data-edit-group="Navigation">A New <span>Dawn.Earth</span></a>
       <ul class="nav__links" id="navLinks">
         <li><a href="/">Home</a></li>
         <li><a href="/mission">Mission</a></li>
@@ -228,7 +231,7 @@
         <li><a href="/transformations">Transformations</a></li>
         <li><a href="/offerings">Offerings</a></li>
         <li><a href="/reviews" class="active">Reviews</a></li>
-        <li><a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="nav__cta">Book a Session</a></li>
+        <li><a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="nav__cta" data-edit="reviews.nav.cta" data-edit-label="Nav Button" data-edit-group="Navigation">Book a Session</a></li>
       </ul>
       <button class="nav__toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -239,187 +242,187 @@
   <main>
 
   <!-- Page Header -->
-  <header class="page-header">
+  <header class="page-header" data-edit-group="Page Header">
     <div class="container container--text">
-      <p class="eyebrow reveal">Voices of Transformation</p>
-      <h1 class="page-header__title reveal">Real Words.<br>Real <em class="text-gold">Healing</em>.</h1>
-      <p class="page-header__subtitle reveal">
+      <p class="eyebrow reveal" data-edit="reviews.header.eyebrow" data-edit-label="Eyebrow">Voices of Transformation</p>
+      <h1 class="page-header__title reveal" data-edit="reviews.header.title" data-edit-label="Page Title">Real Words.<br>Real <em class="text-gold">Healing</em>.</h1>
+      <p class="page-header__subtitle reveal" data-edit="reviews.header.subtitle" data-edit-label="Subtitle">
         Unedited. Unfiltered. From the hearts of those who walked through the door.
       </p>
     </div>
   </header>
 
   <!-- Hero Review -->
-  <section class="section">
+  <section class="section" data-edit-group="Featured Review" data-hideable="reviews.hero" data-edit-label="Featured Review">
     <div class="container">
       <div class="rv rv--hero reveal">
-        <p class="rv__text">
+        <p class="rv__text" data-edit="reviews.hero.text" data-edit-label="Review Text">
           &ldquo;Misty truly saved my life. I have struggled with alcohol and drug addiction for over 7 years. I tried EVERYTHING &mdash; 7 treatment centres, 6 detox stays, hospitalized over 25 times. I truly thought I would never be able to accomplish sobriety. UNTIL my best friend referred me to MISTY!! She cleared some energy from me and connected me to my higher self and since that day I HAVE NOT HAD THE DESIRE OR CRAVING TO CONSUME ALCOHOL OR DRUGS. That is a honest to god MIRACLE. I was spiritually dead inside before seeing her and now I know how important my spiritual self is. I am forever indebted to you.&rdquo;
         </p>
-        <p class="rv__name">Jessa Sky</p>
+        <p class="rv__name" data-edit="reviews.hero.name" data-edit-label="Reviewer Name">Jessa Sky</p>
       </div>
     </div>
   </section>
 
   <!-- Reviews Grid — Life Transformation -->
-  <section class="section" style="background:rgba(30,58,42,0.08);">
+  <section class="section" style="background:rgba(30,58,42,0.08);" data-edit-group="Reviews: Life-Changing" data-hideable="reviews.life" data-edit-label="Life-Changing Section">
     <div class="container">
-      <p class="rv-label reveal">&#10022; Life-Changing Transformations</p>
-      <div class="rv-grid">
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;Magical, intentive, intuitive, witty, kind, understanding, determined, educated, funny, compassionate, soulful are some of the words that best describe this lady. She has changed my life on many levels and she continues to change my life every time we talk. I walk away a different woman every time. I feel lighter, more optimistic, more empowered, more grounded and connected to myself. Just hearing her laugh, for me, makes this world an easier place to live.&rdquo;</p>
-          <p class="rv__name">Lisa McSween</p>
+      <p class="rv-label reveal" data-edit="reviews.life.label" data-edit-label="Section Label">&#10022; Life-Changing Transformations</p>
+      <div class="rv-grid" data-section="reviews.life.cards">
+        <div class="rv reveal" data-order-id="life1">
+          <p class="rv__text" data-edit="reviews.life.c1.text" data-edit-label="Review 1 Text">&ldquo;Magical, intentive, intuitive, witty, kind, understanding, determined, educated, funny, compassionate, soulful are some of the words that best describe this lady. She has changed my life on many levels and she continues to change my life every time we talk. I walk away a different woman every time. I feel lighter, more optimistic, more empowered, more grounded and connected to myself. Just hearing her laugh, for me, makes this world an easier place to live.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.life.c1.name" data-edit-label="Review 1 Name">Lisa McSween</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;Connecting with Shakina was one of the best decisions I made for my life. She is a practitioner of the body, mind and soul. With the deep fascia work, she helped relieve chronic pain I had been experiencing for years. I once told her she works like a spiritual programmer &mdash; identifying glitches, old programs that are no longer serving me and helps to install meaningful upgrades! A true divine conduit.&rdquo;</p>
-          <p class="rv__name">Kate Wentzell</p>
+        <div class="rv reveal" data-order-id="life2">
+          <p class="rv__text" data-edit="reviews.life.c2.text" data-edit-label="Review 2 Text">&ldquo;Connecting with Shakina was one of the best decisions I made for my life. She is a practitioner of the body, mind and soul. With the deep fascia work, she helped relieve chronic pain I had been experiencing for years. I once told her she works like a spiritual programmer &mdash; identifying glitches, old programs that are no longer serving me and helps to install meaningful upgrades! A true divine conduit.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.life.c2.name" data-edit-label="Review 2 Name">Kate Wentzell</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;Shakina Ray is just what her name states, a ray of light shining from the heart of the goddess herself. My experience working with Shakina was a game changer. She holds a fierce and tender space of devotional presence that allows for root causes to be unearthed. You are a blessing and your channel is so clear and pristine.&rdquo;</p>
-          <p class="rv__name">Alexandra Fatima Mathews</p>
+        <div class="rv reveal" data-order-id="life3">
+          <p class="rv__text" data-edit="reviews.life.c3.text" data-edit-label="Review 3 Text">&ldquo;Shakina Ray is just what her name states, a ray of light shining from the heart of the goddess herself. My experience working with Shakina was a game changer. She holds a fierce and tender space of devotional presence that allows for root causes to be unearthed. You are a blessing and your channel is so clear and pristine.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.life.c3.name" data-edit-label="Review 3 Name">Alexandra Fatima Mathews</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;I can&rsquo;t recommend Misty enough. She is an incredibly gifted and intuitive healer with a powerful ability to connect to ancestral guidance. I&rsquo;ve experienced profound realizations and breakthroughs, including deep inner child healing and powerful clearings of generational trauma I wasn&rsquo;t even aware I was carrying. She creates a safe, sacred, and comforting space where it feels easy to be fully open.&rdquo;</p>
-          <p class="rv__name">Asya Smith</p>
+        <div class="rv reveal" data-order-id="life4">
+          <p class="rv__text" data-edit="reviews.life.c4.text" data-edit-label="Review 4 Text">&ldquo;I can&rsquo;t recommend Misty enough. She is an incredibly gifted and intuitive healer with a powerful ability to connect to ancestral guidance. I&rsquo;ve experienced profound realizations and breakthroughs, including deep inner child healing and powerful clearings of generational trauma I wasn&rsquo;t even aware I was carrying. She creates a safe, sacred, and comforting space where it feels easy to be fully open.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.life.c4.name" data-edit-label="Review 4 Name">Asya Smith</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Centered Reviews — Deep Healing -->
-  <section class="section section--large">
+  <section class="section section--large" data-edit-group="Reviews: Deep Healing" data-hideable="reviews.deep" data-edit-label="Deep Healing Section">
     <div class="container">
-      <p class="rv-label reveal">&#10022; Deep Healing &amp; Energy Work</p>
-      <div class="rv-single">
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;Having worked with many healers internationally as part of my research into healing, I had met and worked with healers of almost every modality. Shakina is particularly graceful and dynamic even when challenged by complex issues. She does not back down from a healing challenge. Her attitude is truly a light in a dark place.&rdquo;</p>
-          <p class="rv__name">Nik Swan</p>
+      <p class="rv-label reveal" data-edit="reviews.deep.label" data-edit-label="Section Label">&#10022; Deep Healing &amp; Energy Work</p>
+      <div class="rv-single" data-section="reviews.deep.cards">
+        <div class="rv reveal" data-order-id="deep1">
+          <p class="rv__text" data-edit="reviews.deep.c1.text" data-edit-label="Review 1 Text">&ldquo;Having worked with many healers internationally as part of my research into healing, I had met and worked with healers of almost every modality. Shakina is particularly graceful and dynamic even when challenged by complex issues. She does not back down from a healing challenge. Her attitude is truly a light in a dark place.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.deep.c1.name" data-edit-label="Review 1 Name">Nik Swan</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;Misty is one of the most gifted healers I have ever had the honour to meet. By witnessing the way she owns her gifts &amp; moves effortlessly between the realms has inspired me to step deeper into my own as well as not fear the spirit world. Her mere being emanates such loving groundedness &amp; compassionate wisdom. I am infinitely grateful for her.&rdquo;</p>
-          <p class="rv__name">Kiara Vega</p>
+        <div class="rv reveal" data-order-id="deep2">
+          <p class="rv__text" data-edit="reviews.deep.c2.text" data-edit-label="Review 2 Text">&ldquo;Misty is one of the most gifted healers I have ever had the honour to meet. By witnessing the way she owns her gifts &amp; moves effortlessly between the realms has inspired me to step deeper into my own as well as not fear the spirit world. Her mere being emanates such loving groundedness &amp; compassionate wisdom. I am infinitely grateful for her.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.deep.c2.name" data-edit-label="Review 2 Name">Kiara Vega</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;Shakina Ray is a 10/10 for healing trauma. I was experiencing sharp pain on my lower left side of my back. I did not realize that childhood trauma would hinder one&rsquo;s lower back chakra. After one session the lower back pain is gone!&rdquo;</p>
-          <p class="rv__name">Jason Ritzen</p>
+        <div class="rv reveal" data-order-id="deep3">
+          <p class="rv__text" data-edit="reviews.deep.c3.text" data-edit-label="Review 3 Text">&ldquo;Shakina Ray is a 10/10 for healing trauma. I was experiencing sharp pain on my lower left side of my back. I did not realize that childhood trauma would hinder one&rsquo;s lower back chakra. After one session the lower back pain is gone!&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.deep.c3.name" data-edit-label="Review 3 Name">Jason Ritzen</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;I had the pleasure of working with Misty through the Emotion Code. I worked through numerous hidden heart walls created from past experiences so that I too may learn how to love again completely. I could actually feel the energy blocks releasing in various parts of my body. My hip isn&rsquo;t bothering me anymore and I had such a good sleep. My Son&rsquo;s energy has also improved.&rdquo;</p>
-          <p class="rv__name">Bonnie Maureen Auger</p>
+        <div class="rv reveal" data-order-id="deep4">
+          <p class="rv__text" data-edit="reviews.deep.c4.text" data-edit-label="Review 4 Text">&ldquo;I had the pleasure of working with Misty through the Emotion Code. I worked through numerous hidden heart walls created from past experiences so that I too may learn how to love again completely. I could actually feel the energy blocks releasing in various parts of my body. My hip isn&rsquo;t bothering me anymore and I had such a good sleep. My Son&rsquo;s energy has also improved.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.deep.c4.name" data-edit-label="Review 4 Name">Bonnie Maureen Auger</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;She utilized Rainbow Energy on myself and after years of having very little sensations to feel, I now can. She helped me release energy and emotions to do so. With her compassion, heart and warm loving energy, you will be at ease and with her by your side, you will get through your challenges.&rdquo;</p>
-          <p class="rv__name">Kresimir Rupcic</p>
+        <div class="rv reveal" data-order-id="deep5">
+          <p class="rv__text" data-edit="reviews.deep.c5.text" data-edit-label="Review 5 Text">&ldquo;She utilized Rainbow Energy on myself and after years of having very little sensations to feel, I now can. She helped me release energy and emotions to do so. With her compassion, heart and warm loving energy, you will be at ease and with her by your side, you will get through your challenges.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.deep.c5.name" data-edit-label="Review 5 Name">Kresimir Rupcic</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Grid — Intuition & Guidance -->
-  <section class="section" style="background:rgba(30,58,42,0.08);">
+  <section class="section" style="background:rgba(30,58,42,0.08);" data-edit-group="Reviews: Intuition" data-hideable="reviews.intuition" data-edit-label="Intuition Section">
     <div class="container">
-      <p class="rv-label reveal">&#10022; Intuition &amp; Guidance</p>
-      <div class="rv-grid">
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;If you are ready to understand yourself &amp; your life at a higher level beyond just your feelings &amp; thoughts, I highly recommend Misty. Her powerful intuition &amp; loving energy has her tune into you in a very caring &amp; illuminating way. Misty is the real deal &amp; clears up confusion to allow in light &amp; clarity.&rdquo;</p>
-          <p class="rv__name">Anat Stapleton</p>
+      <p class="rv-label reveal" data-edit="reviews.intuition.label" data-edit-label="Section Label">&#10022; Intuition &amp; Guidance</p>
+      <div class="rv-grid" data-section="reviews.intuition.cards">
+        <div class="rv reveal" data-order-id="int1">
+          <p class="rv__text" data-edit="reviews.intuition.c1.text" data-edit-label="Review 1 Text">&ldquo;If you are ready to understand yourself &amp; your life at a higher level beyond just your feelings &amp; thoughts, I highly recommend Misty. Her powerful intuition &amp; loving energy has her tune into you in a very caring &amp; illuminating way. Misty is the real deal &amp; clears up confusion to allow in light &amp; clarity.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.intuition.c1.name" data-edit-label="Review 1 Name">Anat Stapleton</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;With a high level of skepticism, and at a crossroads in my spiritual journey, I booked an appointment with Shakinaray. 2 hrs of massage and healing have me feeling better than I have in years. Thank you for allowing me in your presence and for helping me start the healing process. You are special!&rdquo;</p>
-          <p class="rv__name">Derek Nipshank</p>
+        <div class="rv reveal" data-order-id="int2">
+          <p class="rv__text" data-edit="reviews.intuition.c2.text" data-edit-label="Review 2 Text">&ldquo;With a high level of skepticism, and at a crossroads in my spiritual journey, I booked an appointment with Shakinaray. 2 hrs of massage and healing have me feeling better than I have in years. Thank you for allowing me in your presence and for helping me start the healing process. You are special!&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.intuition.c2.name" data-edit-label="Review 2 Name">Derek Nipshank</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;Misty is a gifted soul who has immensely powerful intuitive gifts and wisdom. She is able to tune into my energy and needs with ease. I trust her completely. I appreciate her as a healer and now a new friend.&rdquo;</p>
-          <p class="rv__name">S.S.</p>
+        <div class="rv reveal" data-order-id="int3">
+          <p class="rv__text" data-edit="reviews.intuition.c3.text" data-edit-label="Review 3 Text">&ldquo;Misty is a gifted soul who has immensely powerful intuitive gifts and wisdom. She is able to tune into my energy and needs with ease. I trust her completely. I appreciate her as a healer and now a new friend.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.intuition.c3.name" data-edit-label="Review 3 Name">S.S.</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;I&rsquo;ve been seeing Misty for 8 months now and she has helped me immensely with my life. She is an angel spirit amongst us and her gifts are truly incredible.&rdquo;</p>
-          <p class="rv__name">Terry Morin</p>
+        <div class="rv reveal" data-order-id="int4">
+          <p class="rv__text" data-edit="reviews.intuition.c4.text" data-edit-label="Review 4 Text">&ldquo;I&rsquo;ve been seeing Misty for 8 months now and she has helped me immensely with my life. She is an angel spirit amongst us and her gifts are truly incredible.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.intuition.c4.name" data-edit-label="Review 4 Name">Terry Morin</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Centered — Bodywork & Massage -->
-  <section class="section section--large">
+  <section class="section section--large" data-edit-group="Reviews: Bodywork" data-hideable="reviews.body" data-edit-label="Bodywork Section">
     <div class="container">
-      <p class="rv-label reveal">&#10022; Bodywork &amp; Massage</p>
-      <div class="rv-single">
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;Simply giving Misty a five star rating is not enough. She is more than a massage therapist she is a Healer who has a deep passion for her clients health and well being. It&rsquo;s as if she instantly connects with your soul when you walk through her doors. She radiates a positive aura that can&rsquo;t be described in words. Thank you Misty for sharing your life mission with the world!&rdquo;</p>
-          <p class="rv__name">Jana Gallant</p>
+      <p class="rv-label reveal" data-edit="reviews.body.label" data-edit-label="Section Label">&#10022; Bodywork &amp; Massage</p>
+      <div class="rv-single" data-section="reviews.body.cards">
+        <div class="rv reveal" data-order-id="body1">
+          <p class="rv__text" data-edit="reviews.body.c1.text" data-edit-label="Review 1 Text">&ldquo;Simply giving Misty a five star rating is not enough. She is more than a massage therapist she is a Healer who has a deep passion for her clients health and well being. It&rsquo;s as if she instantly connects with your soul when you walk through her doors. She radiates a positive aura that can&rsquo;t be described in words. Thank you Misty for sharing your life mission with the world!&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.body.c1.name" data-edit-label="Review 1 Name">Jana Gallant</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;STOP YOUR SEARCH! Zentuary Wholistics is a standout&hellip; and Misty is the most exceptional massage therapist! There is no cookie-cutter approach with Misty. Her ability to tailor each treatment while listening to the client&rsquo;s perspective is truly unique!&rdquo;</p>
-          <p class="rv__name">Kevin Murray</p>
+        <div class="rv reveal" data-order-id="body2">
+          <p class="rv__text" data-edit="reviews.body.c2.text" data-edit-label="Review 2 Text">&ldquo;STOP YOUR SEARCH! Zentuary Wholistics is a standout&hellip; and Misty is the most exceptional massage therapist! There is no cookie-cutter approach with Misty. Her ability to tailor each treatment while listening to the client&rsquo;s perspective is truly unique!&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.body.c2.name" data-edit-label="Review 2 Name">Kevin Murray</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;She&rsquo;s very knowledgeable, intuitive and exceptional at her craft; she&rsquo;s not afraid to get right into those muscles. I&rsquo;ve been going to Misty for about 5 years now, she is truly the best of the best and not to mention such a beautiful person inside and out!&rdquo;</p>
-          <p class="rv__name">Raylene Peredery</p>
+        <div class="rv reveal" data-order-id="body3">
+          <p class="rv__text" data-edit="reviews.body.c3.text" data-edit-label="Review 3 Text">&ldquo;She&rsquo;s very knowledgeable, intuitive and exceptional at her craft; she&rsquo;s not afraid to get right into those muscles. I&rsquo;ve been going to Misty for about 5 years now, she is truly the best of the best and not to mention such a beautiful person inside and out!&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.body.c3.name" data-edit-label="Review 3 Name">Raylene Peredery</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;I&rsquo;ve received treatment from about 15 other massage therapists and I&rsquo;m always experiencing the same problems once I leave. She cared to find the reasoning rather than just giving me a quick massage. Highly recommend!!&rdquo;</p>
-          <p class="rv__name">Jesse Paonessa</p>
+        <div class="rv reveal" data-order-id="body4">
+          <p class="rv__text" data-edit="reviews.body.c4.text" data-edit-label="Review 4 Text">&ldquo;I&rsquo;ve received treatment from about 15 other massage therapists and I&rsquo;m always experiencing the same problems once I leave. She cared to find the reasoning rather than just giving me a quick massage. Highly recommend!!&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.body.c4.name" data-edit-label="Review 4 Name">Jesse Paonessa</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Grid — More Voices -->
-  <section class="section" style="background:rgba(30,58,42,0.08);">
+  <section class="section" style="background:rgba(30,58,42,0.08);" data-edit-group="Reviews: More Voices" data-hideable="reviews.more" data-edit-label="More Voices Section">
     <div class="container">
-      <p class="rv-label reveal">&#10022; More Voices</p>
-      <div class="rv-grid">
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;If I could give 100 stars, I would. If you are unsure of energy work, Misty is the one to go to. She has a big heart, compassionate and is really driven to help you. I had issues with feeling sensations. After finding some blocks and releasing different energies, I am starting to feel again.&rdquo;</p>
-          <p class="rv__name">Miko Vukovic</p>
+      <p class="rv-label reveal" data-edit="reviews.more.label" data-edit-label="Section Label">&#10022; More Voices</p>
+      <div class="rv-grid" data-section="reviews.more.cards">
+        <div class="rv reveal" data-order-id="more1">
+          <p class="rv__text" data-edit="reviews.more.c1.text" data-edit-label="Review 1 Text">&ldquo;If I could give 100 stars, I would. If you are unsure of energy work, Misty is the one to go to. She has a big heart, compassionate and is really driven to help you. I had issues with feeling sensations. After finding some blocks and releasing different energies, I am starting to feel again.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.more.c1.name" data-edit-label="Review 1 Name">Miko Vukovic</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;Misty is the most gifted healer I have ever worked with to solve my body and energy issues. I have made huge gains in a short period of time. She has a keen sense of what one needs to heal.&rdquo;</p>
-          <p class="rv__name">S.K.V.</p>
+        <div class="rv reveal" data-order-id="more2">
+          <p class="rv__text" data-edit="reviews.more.c2.text" data-edit-label="Review 2 Text">&ldquo;Misty is the most gifted healer I have ever worked with to solve my body and energy issues. I have made huge gains in a short period of time. She has a keen sense of what one needs to heal.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.more.c2.name" data-edit-label="Review 2 Name">S.K.V.</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;Shakina Ray is very gifted, her work has helped me work through and towards my own healing. I highly recommend her work &mdash; energy healing, massage therapy. I&rsquo;ve recommended her work to so many already.&rdquo;</p>
-          <p class="rv__name">Byrdie Nepoose</p>
+        <div class="rv reveal" data-order-id="more3">
+          <p class="rv__text" data-edit="reviews.more.c3.text" data-edit-label="Review 3 Text">&ldquo;Shakina Ray is very gifted, her work has helped me work through and towards my own healing. I highly recommend her work &mdash; energy healing, massage therapy. I&rsquo;ve recommended her work to so many already.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.more.c3.name" data-edit-label="Review 3 Name">Byrdie Nepoose</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;From group sessions to individual sessions, energy healing to massage therapy, I highly recommend this company. I have already shared their contact personally to others.&rdquo;</p>
-          <p class="rv__name">Peggy Nepoose</p>
+        <div class="rv reveal" data-order-id="more4">
+          <p class="rv__text" data-edit="reviews.more.c4.text" data-edit-label="Review 4 Text">&ldquo;From group sessions to individual sessions, energy healing to massage therapy, I highly recommend this company. I have already shared their contact personally to others.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.more.c4.name" data-edit-label="Review 4 Name">Peggy Nepoose</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;Misty delivers professional and expert results in a comfortable and restorative setting. Her integrative approach has helped me maintain and improve upon my training goals. Highly Recommend!&rdquo;</p>
-          <p class="rv__name">Ory Baron</p>
+        <div class="rv reveal" data-order-id="more5">
+          <p class="rv__text" data-edit="reviews.more.c5.text" data-edit-label="Review 5 Text">&ldquo;Misty delivers professional and expert results in a comfortable and restorative setting. Her integrative approach has helped me maintain and improve upon my training goals. Highly Recommend!&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.more.c5.name" data-edit-label="Review 5 Name">Ory Baron</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;Misty&rsquo;s has an amazing ability to guide the client through a wellness session and to work on what is needed for one&rsquo;s body, mind and soul. I highly recommend everyone to experience ZEntuary Wholistics!&rdquo;</p>
-          <p class="rv__name">J Ritz</p>
+        <div class="rv reveal" data-order-id="more6">
+          <p class="rv__text" data-edit="reviews.more.c6.text" data-edit-label="Review 6 Text">&ldquo;Misty&rsquo;s has an amazing ability to guide the client through a wellness session and to work on what is needed for one&rsquo;s body, mind and soul. I highly recommend everyone to experience ZEntuary Wholistics!&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.more.c6.name" data-edit-label="Review 6 Name">J Ritz</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;Absolutely the best massage therapist that I&rsquo;ve ever had. She&rsquo;s so in tune with what is going on with my body. She will be my new go-to always!&rdquo;</p>
-          <p class="rv__name">Jon Tekelenburg</p>
+        <div class="rv reveal" data-order-id="more7">
+          <p class="rv__text" data-edit="reviews.more.c7.text" data-edit-label="Review 7 Text">&ldquo;Absolutely the best massage therapist that I&rsquo;ve ever had. She&rsquo;s so in tune with what is going on with my body. She will be my new go-to always!&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.more.c7.name" data-edit-label="Review 7 Name">Jon Tekelenburg</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;Her touch is intuitive and thorough. Like a heat seeking missile she targets and eliminates trouble areas. Wonderful ambiance, masterful masseuse.&rdquo;</p>
-          <p class="rv__name">Ryan Filax-Wylie</p>
+        <div class="rv reveal" data-order-id="more8">
+          <p class="rv__text" data-edit="reviews.more.c8.text" data-edit-label="Review 8 Text">&ldquo;Her touch is intuitive and thorough. Like a heat seeking missile she targets and eliminates trouble areas. Wonderful ambiance, masterful masseuse.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.more.c8.name" data-edit-label="Review 8 Name">Ryan Filax-Wylie</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;She has so much knowledge in a variety of therapy treatments. I have been going to her on and off for many years and have once again come back because she is an excellent therapist.&rdquo;</p>
-          <p class="rv__name">Shawn Loewen</p>
+        <div class="rv reveal" data-order-id="more9">
+          <p class="rv__text" data-edit="reviews.more.c9.text" data-edit-label="Review 9 Text">&ldquo;She has so much knowledge in a variety of therapy treatments. I have been going to her on and off for many years and have once again come back because she is an excellent therapist.&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.more.c9.name" data-edit-label="Review 9 Name">Shawn Loewen</p>
         </div>
-        <div class="rv reveal">
-          <p class="rv__text">&ldquo;I&rsquo;ve been going to see Misty for over a year now and every session was a great experience. Grateful for her and her services. Highly recommend!&rdquo;</p>
-          <p class="rv__name">Jaylyn Piquette</p>
+        <div class="rv reveal" data-order-id="more10">
+          <p class="rv__text" data-edit="reviews.more.c10.text" data-edit-label="Review 10 Text">&ldquo;I&rsquo;ve been going to see Misty for over a year now and every session was a great experience. Grateful for her and her services. Highly recommend!&rdquo;</p>
+          <p class="rv__name" data-edit="reviews.more.c10.name" data-edit-label="Review 10 Name">Jaylyn Piquette</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Wall of Proof — Instagram -->
-  <section class="section section--large">
+  <section class="section section--large" data-edit-group="Wall of Proof" data-hideable="reviews.proof" data-edit-label="Wall of Proof Section">
     <div class="container">
       <div class="text-center" style="margin-bottom:var(--space-xl);">
-        <p class="eyebrow reveal">Straight from the DMs</p>
-        <h2 class="reveal">Wall of Proof</h2>
+        <p class="eyebrow reveal" data-edit="reviews.proof.eyebrow" data-edit-label="Eyebrow">Straight from the DMs</p>
+        <h2 class="reveal" data-edit="reviews.proof.title" data-edit-label="Title">Wall of Proof</h2>
       </div>
 
       <div class="proof-wrap">
@@ -476,15 +479,15 @@
   </div>
 
   <!-- CTA -->
-  <section class="cta-section">
+  <section class="cta-section" data-edit-group="Closing CTA">
     <div class="container container--text">
-      <p class="eyebrow reveal">Your Transformation Awaits</p>
-      <h2 class="reveal">Ready to Begin?</h2>
-      <p class="lead reveal" style="margin:var(--space-sm) auto var(--space-lg);">
+      <p class="eyebrow reveal" data-edit="reviews.cta.eyebrow" data-edit-label="Eyebrow">Your Transformation Awaits</p>
+      <h2 class="reveal" data-edit="reviews.cta.title" data-edit-label="Title">Ready to Begin?</h2>
+      <p class="lead reveal" style="margin:var(--space-sm) auto var(--space-lg);" data-edit="reviews.cta.lead" data-edit-label="Lead">
         Inquire for a conversation for what may best suit you.
       </p>
       <div class="reveal">
-        <a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="btn btn--primary">Inquire Now</a>
+        <a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="btn btn--primary" data-edit="reviews.cta.button" data-edit-label="Button">Inquire Now</a>
       </div>
     </div>
   </section>
@@ -495,10 +498,10 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <div class="footer__brand">
-          <p class="footer__logo">A New <span>Dawn.Earth</span></p>
-          <p class="footer__tagline">A movement of soul remembering.</p>
-          <p style="font-size:0.85rem;color:var(--muted-text);line-height:1.7;">
+        <div class="footer__brand" data-edit-group="Footer">
+          <p class="footer__logo" data-edit="reviews.footer.logo" data-edit-label="Footer Logo">A New <span>Dawn.Earth</span></p>
+          <p class="footer__tagline" data-edit="reviews.footer.tagline" data-edit-label="Footer Tagline">A movement of soul remembering.</p>
+          <p style="font-size:0.85rem;color:var(--muted-text);line-height:1.7;" data-edit="reviews.footer.about" data-edit-label="Footer About">
             Co-creating with Misty Dawn Merrier &mdash; a Registered Massage Therapist, Soul Coach, Energy Intuitive &amp; Spiritual Liberator. Based in Canada and Hawaii, activating liberation all throughout planet earth.
           </p>
         </div>
@@ -510,6 +513,7 @@
             <li><a href="/story">My Story</a></li>
             <li><a href="/transformations">Transformations</a></li>
             <li><a href="/offerings">Offerings</a></li>
+            <li><a href="/reviews">Reviews</a></li>
           </ul>
         </div>
         <div>
@@ -522,9 +526,9 @@
           </ul>
         </div>
       </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 A New Dawn. All rights reserved.</p>
-        <p>Canada &amp; Hawaii &middot; Turtle Island</p>
+      <div class="footer__bottom" data-edit-group="Footer">
+        <p data-edit="reviews.footer.copyright" data-edit-label="Copyright">&copy; 2026 A New Dawn. All rights reserved.</p>
+        <p data-edit="reviews.footer.location" data-edit-label="Location">Canada &amp; Hawaii &middot; Turtle Island</p>
       </div>
     </div>
   </footer>

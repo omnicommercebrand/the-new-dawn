@@ -19,13 +19,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- A New Dawn editor overlay: instant theme (prevents color flash) + runtime loader -->
+  <script>(function(){try{var c=localStorage.getItem('nd_theme_cache_v1');if(c){var v=JSON.parse(c),r=document.documentElement;for(var k in v){if(k.charAt(0)==='-'&&typeof v[k]==='string')r.style.setProperty(k,v[k]);}}}catch(e){}})();</script>
+  <script type="module" src="js/overlay-runtime.js"></script>
 </head>
 <body>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="/" class="nav__logo">A New <span>Dawn.Earth</span></a>
+      <a href="/" class="nav__logo" data-edit="story.nav.logo" data-edit-label="Logo Text" data-edit-group="Navigation">A New <span>Dawn.Earth</span></a>
       <ul class="nav__links" id="navLinks">
         <li><a href="/">Home</a></li>
         <li><a href="/mission">Mission</a></li>
@@ -33,7 +36,7 @@
         <li><a href="/transformations">Transformations</a></li>
         <li><a href="/offerings">Offerings</a></li>
         <li><a href="/reviews">Reviews</a></li>
-        <li><a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="nav__cta">Book a Session</a></li>
+        <li><a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="nav__cta" data-edit="story.nav.cta" data-edit-label="Nav Button" data-edit-group="Navigation">Book a Session</a></li>
       </ul>
       <button class="nav__toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -44,58 +47,58 @@
   <main>
 
   <!-- Page Header -->
-  <header class="page-header">
+  <header class="page-header" data-edit-group="Page Header">
     <div class="container container--text">
-      <p class="eyebrow reveal">Tan'si</p>
-      <h1 class="page-header__title reveal">I Am Shakina Ray</h1>
-      <p class="page-header__subtitle reveal">
+      <p class="eyebrow reveal" data-edit="story.header.eyebrow" data-edit-label="Eyebrow">Tan'si</p>
+      <h1 class="page-header__title reveal" data-edit="story.header.title" data-edit-label="Page Heading">I Am Shakina Ray</h1>
+      <p class="page-header__subtitle reveal" data-edit="story.header.subtitle" data-edit-label="Subtitle">
         The person I am today is who I needed when I was younger.
       </p>
     </div>
   </header>
 
   <!-- Intro -->
-  <section class="section section--large">
+  <section class="section section--large" data-edit-group="Intro (Photo + Bio)">
     <div class="container">
       <!-- Full-width cinematic image -->
       <div class="reveal" style="margin-bottom:var(--space-lg);">
-        <img src="images/misty image 2.jpg" alt="Misty Dawn Merrier — Shakina Ray — Healing Guide, Soul Coach &amp; Spiritual Liberator" loading="lazy" style="width:100%; height:auto; border-radius:var(--radius-lg); display:block;">
+        <img src="images/misty image 2.jpg" alt="Misty Dawn Merrier — Shakina Ray — Healing Guide, Soul Coach &amp; Spiritual Liberator" loading="lazy" data-edit-img="story.intro.image" data-edit-label="Photo" style="width:100%; height:auto; border-radius:var(--radius-lg); display:block;">
       </div>
 
       <!-- Bio content centered below -->
       <div class="reveal" style="max-width:720px; margin:0 auto; text-align:center;">
-        <p class="eyebrow">Who I Am</p>
-        <h2>Misty Dawn Merrier<br><em class="text-gold">Shakina Ray</em></h2>
-          <p class="lead" style="margin:var(--space-md) 0;">
+        <p class="eyebrow" data-edit="story.intro.eyebrow" data-edit-label="Eyebrow">Who I Am</p>
+        <h2 data-edit="story.intro.title" data-edit-label="Heading">Misty Dawn Merrier<br><em class="text-gold">Shakina Ray</em></h2>
+          <p class="lead" data-edit="story.intro.lead" data-edit-label="Lead Paragraph" style="margin:var(--space-md) 0;">
             Tan&rsquo;si. I am Misty. My spirit name is Shakina Ray. I am First Nations &mdash; Nehiyaw and European, from Woodland Cree, Alberta, Canada.
           </p>
-          <p class="text-muted" style="margin-bottom:var(--space-md);">
+          <p class="text-muted" data-edit="story.intro.body" data-edit-label="Body Paragraph" style="margin-bottom:var(--space-md);">
             I find fulfilment in empowering and inspiring people to fully actualize their power, voice, and inner healer. The work I do today comes from the deepest part of who I am &mdash; because the healer I am now is the one I needed growing up.
           </p>
-          <div class="credentials" style="justify-content:center;">
-            <span class="credential">
+          <div class="credentials" data-section="story.intro.credentials" data-edit-label="Credentials (drag to reorder)" style="justify-content:center;">
+            <span class="credential" data-order-id="cred1">
               <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1"/><path d="M5 7l2 2 3-4" stroke="currentColor" stroke-width="1"/></svg>
-              Registered Massage Therapist
+              <span data-edit="story.intro.cred1" data-edit-label="Credential 1">Registered Massage Therapist</span>
             </span>
-            <span class="credential">
+            <span class="credential" data-order-id="cred2">
               <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1"/><path d="M5 7l2 2 3-4" stroke="currentColor" stroke-width="1"/></svg>
-              Neurofascial Specialist
+              <span data-edit="story.intro.cred2" data-edit-label="Credential 2">Neurofascial Specialist</span>
             </span>
-            <span class="credential">
+            <span class="credential" data-order-id="cred3">
               <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1"/><path d="M5 7l2 2 3-4" stroke="currentColor" stroke-width="1"/></svg>
-              Emotion &amp; Body Code
+              <span data-edit="story.intro.cred3" data-edit-label="Credential 3">Emotion &amp; Body Code</span>
             </span>
-            <span class="credential">
+            <span class="credential" data-order-id="cred4">
               <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1"/><path d="M5 7l2 2 3-4" stroke="currentColor" stroke-width="1"/></svg>
-              Advanced PSYCH-K&reg;
+              <span data-edit="story.intro.cred4" data-edit-label="Credential 4">Advanced PSYCH-K&reg;</span>
             </span>
-            <span class="credential">
+            <span class="credential" data-order-id="cred5">
               <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1"/><path d="M5 7l2 2 3-4" stroke="currentColor" stroke-width="1"/></svg>
-              Healing Guide
+              <span data-edit="story.intro.cred5" data-edit-label="Credential 5">Healing Guide</span>
             </span>
-            <span class="credential">
+            <span class="credential" data-order-id="cred6">
               <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1"/><path d="M5 7l2 2 3-4" stroke="currentColor" stroke-width="1"/></svg>
-              Gridworker
+              <span data-edit="story.intro.cred6" data-edit-label="Credential 6">Gridworker</span>
             </span>
           </div>
         </div>
@@ -103,86 +106,86 @@
   </section>
 
   <!-- Quote -->
-  <section class="section" style="background:rgba(30,58,42,0.1);">
+  <section class="section" data-edit-group="Quote" data-hideable="story.quote" data-edit-label="Quote Section" style="background:rgba(30,58,42,0.1);">
     <div class="container container--text">
-      <div class="quote reveal text-center" style="border-left:none;padding-left:0;text-align:center;">
+      <div class="quote reveal text-center" data-edit="story.quote.text" data-edit-label="Quote" style="border-left:none;padding-left:0;text-align:center;">
         I specialize in inner child healing, freeing the body of dis-ease and pain, and helping you remember you are the Creator of your reality.
       </div>
     </div>
   </section>
 
   <!-- The Journey -->
-  <section class="section section--large">
+  <section class="section section--large" data-edit-group="The Journey" data-hideable="story.journey" data-edit-label="Journey Section">
     <div class="container container--narrow">
       <div class="text-center" style="margin-bottom:var(--space-xl);">
-        <p class="eyebrow reveal">The Path</p>
-        <h2 class="reveal">A Journey of<br>Becoming</h2>
+        <p class="eyebrow reveal" data-edit="story.journey.eyebrow" data-edit-label="Eyebrow">The Path</p>
+        <h2 class="reveal" data-edit="story.journey.title" data-edit-label="Heading">A Journey of<br>Becoming</h2>
       </div>
-      <div class="timeline">
-        <div class="timeline__item reveal">
-          <p class="timeline__year">Roots</p>
-          <h3 class="timeline__title">Nehiyaw Heritage</h3>
-          <p class="timeline__text">Born of Woodland Cree and European descent in Alberta, Canada. The land, the ancestors, and the old ways were always whispering &mdash; even before I knew how to listen.</p>
+      <div class="timeline" data-section="story.journey.items" data-edit-label="Timeline Steps (drag to reorder)">
+        <div class="timeline__item reveal" data-order-id="roots">
+          <p class="timeline__year" data-edit="story.journey.i1.year" data-edit-label="Step 1 Label">Roots</p>
+          <h3 class="timeline__title" data-edit="story.journey.i1.title" data-edit-label="Step 1 Title">Nehiyaw Heritage</h3>
+          <p class="timeline__text" data-edit="story.journey.i1.text" data-edit-label="Step 1 Text">Born of Woodland Cree and European descent in Alberta, Canada. The land, the ancestors, and the old ways were always whispering &mdash; even before I knew how to listen.</p>
         </div>
-        <div class="timeline__item reveal">
-          <p class="timeline__year">Awakening</p>
-          <h3 class="timeline__title">The Body Speaks</h3>
-          <p class="timeline__text">Training as a Registered Massage Therapist revealed something profound: the body holds everything. Every trauma, every joy, every ancestral memory. The hands became a gateway to something far deeper than muscle and bone.</p>
+        <div class="timeline__item reveal" data-order-id="awakening">
+          <p class="timeline__year" data-edit="story.journey.i2.year" data-edit-label="Step 2 Label">Awakening</p>
+          <h3 class="timeline__title" data-edit="story.journey.i2.title" data-edit-label="Step 2 Title">The Body Speaks</h3>
+          <p class="timeline__text" data-edit="story.journey.i2.text" data-edit-label="Step 2 Text">Training as a Registered Massage Therapist revealed something profound: the body holds everything. Every trauma, every joy, every ancestral memory. The hands became a gateway to something far deeper than muscle and bone.</p>
         </div>
-        <div class="timeline__item reveal">
-          <p class="timeline__year">Expansion</p>
-          <h3 class="timeline__title">Beyond the Physical</h3>
-          <p class="timeline__text">Neurofascial work, Emotion &amp; Body Code, PSYCH-K&reg; &mdash; each modality added a new dimension. The body, mind, and spirit are not separate systems. They are one conversation. Healing one heals all.</p>
+        <div class="timeline__item reveal" data-order-id="expansion">
+          <p class="timeline__year" data-edit="story.journey.i3.year" data-edit-label="Step 3 Label">Expansion</p>
+          <h3 class="timeline__title" data-edit="story.journey.i3.title" data-edit-label="Step 3 Title">Beyond the Physical</h3>
+          <p class="timeline__text" data-edit="story.journey.i3.text" data-edit-label="Step 3 Text">Neurofascial work, Emotion &amp; Body Code, PSYCH-K&reg; &mdash; each modality added a new dimension. The body, mind, and spirit are not separate systems. They are one conversation. Healing one heals all.</p>
         </div>
-        <div class="timeline__item reveal">
-          <p class="timeline__year">Remembering</p>
-          <h3 class="timeline__title">Spirit Communication</h3>
-          <p class="timeline__text">Mediumship opened the door to communicating with spirits &mdash; not just of departed loved ones, but of the land itself. Buildings, homes, and the earth all carry energy. All carry stories waiting to be witnessed.</p>
+        <div class="timeline__item reveal" data-order-id="remembering">
+          <p class="timeline__year" data-edit="story.journey.i4.year" data-edit-label="Step 4 Label">Remembering</p>
+          <h3 class="timeline__title" data-edit="story.journey.i4.title" data-edit-label="Step 4 Title">Spirit Communication</h3>
+          <p class="timeline__text" data-edit="story.journey.i4.text" data-edit-label="Step 4 Text">Mediumship opened the door to communicating with spirits &mdash; not just of departed loved ones, but of the land itself. Buildings, homes, and the earth all carry energy. All carry stories waiting to be witnessed.</p>
         </div>
-        <div class="timeline__item reveal">
-          <p class="timeline__year">Now</p>
-          <h3 class="timeline__title">A New Dawn</h3>
-          <p class="timeline__text">Today, every session is alchemy. Massage, ancestral work, past life clearing, inner child healing &mdash; all woven together in a single session, guided by your body&rsquo;s wisdom and your soul&rsquo;s readiness. No two sessions are ever the same.</p>
+        <div class="timeline__item reveal" data-order-id="now">
+          <p class="timeline__year" data-edit="story.journey.i5.year" data-edit-label="Step 5 Label">Now</p>
+          <h3 class="timeline__title" data-edit="story.journey.i5.title" data-edit-label="Step 5 Title">A New Dawn</h3>
+          <p class="timeline__text" data-edit="story.journey.i5.text" data-edit-label="Step 5 Text">Today, every session is alchemy. Massage, ancestral work, past life clearing, inner child healing &mdash; all woven together in a single session, guided by your body&rsquo;s wisdom and your soul&rsquo;s readiness. No two sessions are ever the same.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Philosophy -->
-  <section class="section" style="background:rgba(30,58,42,0.1);">
+  <section class="section" data-edit-group="My Philosophy (Image + Text)" data-hideable="story.philosophy" data-edit-label="Philosophy Section" style="background:rgba(30,58,42,0.1);">
     <div class="container">
       <div class="image-text image-text--reverse">
         <div class="image-text__image reveal">
-          <div class="placeholder-image" style="aspect-ratio:4/5;">Nature & Sacred Space</div>
+          <div class="placeholder-image" data-edit-bg="story.philosophy.image" data-edit-label="Image" style="aspect-ratio:4/5;">Nature & Sacred Space</div>
         </div>
         <div class="reveal">
-          <p class="eyebrow">My Philosophy</p>
-          <h2>Every Session Is<br><em class="text-gold">Alchemy</em></h2>
-          <p class="lead" style="margin:var(--space-md) 0;">
+          <p class="eyebrow" data-edit="story.philosophy.eyebrow" data-edit-label="Eyebrow">My Philosophy</p>
+          <h2 data-edit="story.philosophy.title" data-edit-label="Heading">Every Session Is<br><em class="text-gold">Alchemy</em></h2>
+          <p class="lead" data-edit="story.philosophy.lead" data-edit-label="Lead Paragraph" style="margin:var(--space-md) 0;">
             What do you want? What is your soul willing to align you with? How far do you want to go?
           </p>
-          <p class="text-muted" style="margin-bottom:var(--space-sm);">
+          <p class="text-muted" data-edit="story.philosophy.body1" data-edit-label="Body Paragraph 1" style="margin-bottom:var(--space-sm);">
             I don&rsquo;t follow scripts or protocols. The tools that emerge in each session are guided by the intelligence of your body and spirit. Somatic therapy might flow into visualization. Ancestral clearing might open into past life work. Massage might become a portal.
           </p>
-          <p class="text-muted" style="margin-bottom:var(--space-lg);">
+          <p class="text-muted" data-edit="story.philosophy.body2" data-edit-label="Body Paragraph 2" style="margin-bottom:var(--space-lg);">
             The wellness I offer embodies <strong class="text-gold">safety</strong>, <strong class="text-gold">kindness</strong>, <strong class="text-gold">honesty</strong>, and <strong class="text-gold">confidentiality</strong>. This is a space where transformation happens because you feel held enough to let go.
           </p>
-          <a href="/offerings" class="btn btn--primary">Explore the Offerings</a>
+          <a href="/offerings" class="btn btn--primary" data-edit="story.philosophy.cta" data-edit-label="Button">Explore the Offerings</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-section">
+  <section class="cta-section" data-edit-group="Closing CTA">
     <div class="container container--text">
-      <p class="eyebrow reveal">Let&rsquo;s Connect</p>
-      <h2 class="reveal">I&rsquo;d Love to<br>Meet Your Soul</h2>
-      <p class="lead reveal" style="margin:var(--space-sm) auto var(--space-lg);">
+      <p class="eyebrow reveal" data-edit="story.cta.eyebrow" data-edit-label="Eyebrow">Let&rsquo;s Connect</p>
+      <h2 class="reveal" data-edit="story.cta.title" data-edit-label="Heading">I&rsquo;d Love to<br>Meet Your Soul</h2>
+      <p class="lead reveal" data-edit="story.cta.lead" data-edit-label="Lead Paragraph" style="margin:var(--space-sm) auto var(--space-lg);">
         Apply to begin the conversation. We meet, we feel into what&rsquo;s needed &mdash; and we co-create a path forward.
       </p>
       <div class="reveal">
-        <a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="btn btn--primary">Apply Now</a>
+        <a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="btn btn--primary" data-edit="story.cta.button" data-edit-label="Button">Apply Now</a>
       </div>
     </div>
   </section>
@@ -190,13 +193,13 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" data-edit-group="Footer">
     <div class="container">
       <div class="footer__inner">
         <div class="footer__brand">
-          <p class="footer__logo">A New <span>Dawn.Earth</span></p>
-          <p class="footer__tagline">A movement of soul remembering.</p>
-          <p style="font-size:0.85rem;color:var(--muted-text);line-height:1.7;">
+          <p class="footer__logo" data-edit="story.footer.logo" data-edit-label="Footer Logo">A New <span>Dawn.Earth</span></p>
+          <p class="footer__tagline" data-edit="story.footer.tagline" data-edit-label="Tagline">A movement of soul remembering.</p>
+          <p data-edit="story.footer.about" data-edit-label="About Text" style="font-size:0.85rem;color:var(--muted-text);line-height:1.7;">
             Co-creating with Misty Dawn Merrier &mdash; a Registered Massage Therapist, Soul Coach, Energy Intuitive &amp; Spiritual Liberator. Based in Canada and Hawaii, activating liberation all throughout planet earth.
           </p>
         </div>
@@ -222,8 +225,8 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2026 A New Dawn. All rights reserved.</p>
-        <p>Canada &amp; Hawaii &middot; Turtle Island</p>
+        <p data-edit="story.footer.copyright" data-edit-label="Copyright">&copy; 2026 A New Dawn. All rights reserved.</p>
+        <p data-edit="story.footer.location" data-edit-label="Location">Canada &amp; Hawaii &middot; Turtle Island</p>
       </div>
     </div>
   </footer>

@@ -19,13 +19,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- A New Dawn editor overlay: instant theme (prevents color flash) + runtime loader -->
+  <script>(function(){try{var c=localStorage.getItem('nd_theme_cache_v1');if(c){var v=JSON.parse(c),r=document.documentElement;for(var k in v){if(k.charAt(0)==='-'&&typeof v[k]==='string')r.style.setProperty(k,v[k]);}}}catch(e){}})();</script>
+  <script type="module" src="js/overlay-runtime.js"></script>
 </head>
 <body>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="/" class="nav__logo">A New <span>Dawn.Earth</span></a>
+      <a href="/" class="nav__logo" data-edit="transformations.nav.logo" data-edit-label="Logo Text" data-edit-group="Navigation">A New <span>Dawn.Earth</span></a>
       <ul class="nav__links" id="navLinks">
         <li><a href="/">Home</a></li>
         <li><a href="/mission">Mission</a></li>
@@ -33,7 +36,7 @@
         <li><a href="/transformations" class="active">Transformations</a></li>
         <li><a href="/offerings">Offerings</a></li>
         <li><a href="/reviews">Reviews</a></li>
-        <li><a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="nav__cta">Book a Session</a></li>
+        <li><a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="nav__cta" data-edit="transformations.nav.cta" data-edit-label="Nav Button" data-edit-group="Navigation">Book a Session</a></li>
       </ul>
       <button class="nav__toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -44,102 +47,102 @@
   <main>
 
   <!-- Page Header -->
-  <header class="page-header">
+  <header class="page-header" data-edit-group="Page Header">
     <div class="container container--text">
-      <p class="eyebrow reveal">Proof in the Transformation</p>
-      <h1 class="page-header__title reveal">Stories of<br>Becoming</h1>
-      <p class="page-header__subtitle reveal">
+      <p class="eyebrow reveal" data-edit="transformations.header.eyebrow" data-edit-label="Eyebrow">Proof in the Transformation</p>
+      <h1 class="page-header__title reveal" data-edit="transformations.header.title" data-edit-label="Page Heading">Stories of<br>Becoming</h1>
+      <p class="page-header__subtitle reveal" data-edit="transformations.header.subtitle" data-edit-label="Subtitle">
         Real journeys. Real shifts. Every transformation is unique &mdash; just like every soul.
       </p>
     </div>
   </header>
 
   <!-- Featured: Jessa Sky -->
-  <section class="section section--large">
+  <section class="section section--large" data-edit-group="Featured Story 1" data-hideable="transformations.featured1" data-edit-label="Featured Story 1 Section">
     <div class="container container--narrow">
       <div class="testimonial reveal-scale" style="padding:var(--space-xl);">
-        <p class="eyebrow" style="margin-bottom:var(--space-md);">Featured Transformation</p>
-        <p class="testimonial__text" style="font-size:clamp(1.2rem,2.2vw,1.6rem);">
+        <p class="eyebrow" data-edit="transformations.featured1.eyebrow" data-edit-label="Eyebrow" style="margin-bottom:var(--space-md);">Featured Transformation</p>
+        <p class="testimonial__text" data-edit="transformations.featured1.text" data-edit-label="Quote" style="font-size:clamp(1.2rem,2.2vw,1.6rem);">
           &ldquo;Misty truly saved my life. I have struggled with alcohol and drug addiction for over 7 years. I tried EVERYTHING to stop drinking and using. I tried inpatient treatment, outpatient treatment, self help groups, self help books, religion, literally EVERYTHING. I have been to 7 treatment centres, 6 detox stays, and I&rsquo;ve been hospitalized over 25 times due to overdose or alcohol poisoning, and unfortunately I have had 5 suicide attempts. I truly thought I would never be able to accomplish sobriety. UNTIL my best friend referred me to MISTY!! I went to see her and she cleared some energy from me and connected me to my higher self and since that day I HAVE NOT HAD THE DESIRE OR CRAVING TO CONSUME ALCOHOL OR DRUGS. That is a honest to god MIRACLE. It has been 5 months since I&rsquo;ve touched any mind altering substance. If you think this is a coincidence it is NOT.&rdquo;
         </p>
-        <p class="testimonial__author">&mdash; Jessa Sky</p>
+        <p class="testimonial__author" data-edit="transformations.featured1.author" data-edit-label="Author">&mdash; Jessa Sky</p>
       </div>
     </div>
   </section>
 
   <!-- Featured: Alexandra -->
-  <section class="section">
+  <section class="section" data-edit-group="Featured Story 2" data-hideable="transformations.featured2" data-edit-label="Featured Story 2 Section">
     <div class="container container--narrow">
       <div class="testimonial reveal-scale" style="padding:var(--space-xl);background:rgba(201,168,76,0.04);border-color:rgba(201,168,76,0.2);">
-        <p class="testimonial__text" style="font-size:clamp(1.2rem,2.2vw,1.5rem);">
+        <p class="testimonial__text" data-edit="transformations.featured2.text" data-edit-label="Quote" style="font-size:clamp(1.2rem,2.2vw,1.5rem);">
           &ldquo;Shakina Ray is just what her name states, a ray of light shining from the heart of the goddess herself. My experience working with Shakina was a game changer. I&rsquo;ve worked with many healers and this ray of light was precise and thorough with an accuracy that had me feeling witnessed to the core of my being. She holds a fierce and tender space of devotional presence that allows for root causes to be unearthed. I highly recommend working with Shakina if you are desiring to embody your truest essence and integrate on all dimensional levels into this present time space.&rdquo;
         </p>
-        <p class="testimonial__author">&mdash; Alexandra Fatima Mathews</p>
+        <p class="testimonial__author" data-edit="transformations.featured2.author" data-edit-label="Author">&mdash; Alexandra Fatima Mathews</p>
       </div>
     </div>
   </section>
 
   <!-- Testimonial Grid -->
-  <section class="section" style="background:rgba(30,58,42,0.1);">
+  <section class="section" data-edit-group="Story Grid" data-hideable="transformations.grid" data-edit-label="Story Grid Section" style="background:rgba(30,58,42,0.1);">
     <div class="container">
       <div class="text-center" style="margin-bottom:var(--space-xl);">
-        <p class="eyebrow reveal">Sacred Shifts</p>
-        <h2 class="reveal">What Becomes Possible</h2>
+        <p class="eyebrow reveal" data-edit="transformations.grid.eyebrow" data-edit-label="Eyebrow">Sacred Shifts</p>
+        <h2 class="reveal" data-edit="transformations.grid.title" data-edit-label="Heading">What Becomes Possible</h2>
       </div>
-      <div class="grid grid-2" style="gap:var(--space-lg);">
+      <div class="grid grid-2" data-section="transformations.grid.cards" data-edit-label="Story Cards (drag to reorder)" style="gap:var(--space-lg);">
 
         <!-- Nik Swan -->
-        <div class="card reveal reveal-delay-1" style="padding:var(--space-lg);">
-          <p class="offering__badge">International Healer&rsquo;s Endorsement</p>
-          <p class="card__text" style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--soft-cream);line-height:1.7;margin-bottom:var(--space-md);">
+        <div class="card reveal reveal-delay-1" data-order-id="nik" style="padding:var(--space-lg);">
+          <p class="offering__badge" data-edit="transformations.grid.c1.badge" data-edit-label="Card 1 Tag">International Healer&rsquo;s Endorsement</p>
+          <p class="card__text" data-edit="transformations.grid.c1.text" data-edit-label="Card 1 Quote" style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--soft-cream);line-height:1.7;margin-bottom:var(--space-md);">
             &ldquo;Shakina is incredible at what she does and comes highly recommended. Having worked with many healers internationally as part of my research into healing, I had met and worked with healers of almost every modality. Shakina is particularly graceful and dynamic even when challenged by complex issues. She does not back down from a healing challenge and had worked with me through a number of difficult traumas and spiritual blocks. Her attitude is truly a light in a dark place and I look forward to continuing our work together.&rdquo;
           </p>
-          <p class="testimonial__author">&mdash; Nik Swan</p>
+          <p class="testimonial__author" data-edit="transformations.grid.c1.author" data-edit-label="Card 1 Author">&mdash; Nik Swan</p>
         </div>
 
         <!-- Anat Stapleton -->
-        <div class="card reveal reveal-delay-2" style="padding:var(--space-lg);">
-          <p class="offering__badge">Clarity &amp; Intuition</p>
-          <p class="card__text" style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--soft-cream);line-height:1.7;margin-bottom:var(--space-md);">
+        <div class="card reveal reveal-delay-2" data-order-id="anat" style="padding:var(--space-lg);">
+          <p class="offering__badge" data-edit="transformations.grid.c2.badge" data-edit-label="Card 2 Tag">Clarity &amp; Intuition</p>
+          <p class="card__text" data-edit="transformations.grid.c2.text" data-edit-label="Card 2 Quote" style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--soft-cream);line-height:1.7;margin-bottom:var(--space-md);">
             &ldquo;If you are ready to understand yourself &amp; your life at a higher level beyond just your feelings &amp; thoughts, I highly recommend Misty. Her powerful intuition &amp; loving energy has her tune into you &amp; understand you in a very caring &amp; illuminating way. Misty is the real deal &amp; clears up confusion to allow in light &amp; clarity on the things in your life that are important to you. I&rsquo;ve already referred her to friends &amp; will continue to utilize her services in the future. Misty, thank you for all that you do. You are amazing.&rdquo;
           </p>
-          <p class="testimonial__author">&mdash; Anat Stapleton</p>
+          <p class="testimonial__author" data-edit="transformations.grid.c2.author" data-edit-label="Card 2 Author">&mdash; Anat Stapleton</p>
         </div>
 
         <!-- Bonnie Maureen Auger -->
-        <div class="card reveal reveal-delay-1" style="padding:var(--space-lg);">
-          <p class="offering__badge">Emotion Code &amp; Heart Wall Release</p>
-          <p class="card__text" style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--soft-cream);line-height:1.7;margin-bottom:var(--space-md);">
+        <div class="card reveal reveal-delay-1" data-order-id="bonnie" style="padding:var(--space-lg);">
+          <p class="offering__badge" data-edit="transformations.grid.c3.badge" data-edit-label="Card 3 Tag">Emotion Code &amp; Heart Wall Release</p>
+          <p class="card__text" data-edit="transformations.grid.c3.text" data-edit-label="Card 3 Quote" style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--soft-cream);line-height:1.7;margin-bottom:var(--space-md);">
             &ldquo;Thank you for all that you do Misty! Keep Shining! I am eternally grateful for your services. I had the pleasure of working with Misty through the Emotion Code and I am very pleased with this unfolding of my healing journey to have worked through numerous hidden heart walls created from past experiences so that I too may learn how to love again completely. I am already feeling more joyous and light as well as relaxed. I could actually feel the energy blocks releasing in various parts of my body. My hip isn&rsquo;t bothering me anymore and I had such a good sleep. My Sons energy has also improved the same evening and next day!&rdquo;
           </p>
-          <p class="testimonial__author">&mdash; Bonnie Maureen Auger</p>
+          <p class="testimonial__author" data-edit="transformations.grid.c3.author" data-edit-label="Card 3 Author">&mdash; Bonnie Maureen Auger</p>
         </div>
 
         <!-- Kresimir Rupcic -->
-        <div class="card reveal reveal-delay-2" style="padding:var(--space-lg);">
-          <p class="offering__badge">Rainbow Energy &amp; Sensation Restoration</p>
-          <p class="card__text" style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--soft-cream);line-height:1.7;margin-bottom:var(--space-md);">
+        <div class="card reveal reveal-delay-2" data-order-id="kresimir" style="padding:var(--space-lg);">
+          <p class="offering__badge" data-edit="transformations.grid.c4.badge" data-edit-label="Card 4 Tag">Rainbow Energy &amp; Sensation Restoration</p>
+          <p class="card__text" data-edit="transformations.grid.c4.text" data-edit-label="Card 4 Quote" style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--soft-cream);line-height:1.7;margin-bottom:var(--space-md);">
             &ldquo;Misty is a wonderful energy worker/healer! With such a big heart and passion to empower and heal individuals, she is the person to go to! She is able to utilize different techniques that is best suited for each individual and is constantly striving to learn more to help even better. She utilized Rainbow Energy on myself and after years of having very little sensations to feel, I now can. She helped me release energy and emotions to do so. With her compassion, heart and warm loving energy, you will be at ease and with her by your side, you will get through your challenges.&rdquo;
           </p>
-          <p class="testimonial__author">&mdash; Kresimir Rupcic</p>
+          <p class="testimonial__author" data-edit="transformations.grid.c4.author" data-edit-label="Card 4 Author">&mdash; Kresimir Rupcic</p>
         </div>
 
         <!-- Byrdie Nepoose -->
-        <div class="card reveal reveal-delay-1" style="padding:var(--space-lg);">
-          <p class="offering__badge">Energy Healing &amp; Massage</p>
-          <p class="card__text" style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--soft-cream);line-height:1.7;margin-bottom:var(--space-md);">
+        <div class="card reveal reveal-delay-1" data-order-id="byrdie" style="padding:var(--space-lg);">
+          <p class="offering__badge" data-edit="transformations.grid.c5.badge" data-edit-label="Card 5 Tag">Energy Healing &amp; Massage</p>
+          <p class="card__text" data-edit="transformations.grid.c5.text" data-edit-label="Card 5 Quote" style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--soft-cream);line-height:1.7;margin-bottom:var(--space-md);">
             &ldquo;Shakina Ray is very gifted, her work has helped me work through and towards my own healing. I highly recommend her work &mdash; energy healing, massage therapy &mdash; it was definitely helpful and appreciated. If you have the chance please access her services, I&rsquo;ve recommended her work to so many already.&rdquo;
           </p>
-          <p class="testimonial__author">&mdash; Byrdie Nepoose</p>
+          <p class="testimonial__author" data-edit="transformations.grid.c5.author" data-edit-label="Card 5 Author">&mdash; Byrdie Nepoose</p>
         </div>
 
         <!-- Jessa Sky (continued) -->
-        <div class="card reveal reveal-delay-2" style="padding:var(--space-lg);">
-          <p class="offering__badge">Sobriety &amp; Spiritual Awakening</p>
-          <p class="card__text" style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--soft-cream);line-height:1.7;margin-bottom:var(--space-md);">
+        <div class="card reveal reveal-delay-2" data-order-id="jessa2" style="padding:var(--space-lg);">
+          <p class="offering__badge" data-edit="transformations.grid.c6.badge" data-edit-label="Card 6 Tag">Sobriety &amp; Spiritual Awakening</p>
+          <p class="card__text" data-edit="transformations.grid.c6.text" data-edit-label="Card 6 Quote" style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--soft-cream);line-height:1.7;margin-bottom:var(--space-md);">
             &ldquo;I was the type of drinker and drug user that could not go a single day without consuming alcohol or drugs. To go 5 FULL MONTHS AND CONTINUING to remain sober is a miracle. I know Misty is to thank for this and I can&rsquo;t stress enough if you are struggling with ANYTHING, Misty can help you. We are infinite beings with a soul and spirit connection. I was spiritually dead inside before seeing her and now I know how important my spiritual self is. Thank you Misty for showing me my true potential and onsetting my true authentic self in this spiritual and physical world. I am forever indebted to you.&rdquo;
           </p>
-          <p class="testimonial__author">&mdash; Jessa Sky</p>
+          <p class="testimonial__author" data-edit="transformations.grid.c6.author" data-edit-label="Card 6 Author">&mdash; Jessa Sky</p>
         </div>
 
       </div>
@@ -147,42 +150,42 @@
   </section>
 
   <!-- Stats -->
-  <section class="section section--large">
+  <section class="section section--large" data-edit-group="Stats" data-hideable="transformations.stats" data-edit-label="Stats Section">
     <div class="container">
-      <div class="stats reveal">
-        <div class="stat">
-          <p class="stat__number">10+</p>
-          <p class="stat__label">Years of Practice</p>
+      <div class="stats reveal" data-section="transformations.stats.items" data-edit-label="Stats (drag to reorder)">
+        <div class="stat" data-order-id="years">
+          <p class="stat__number" data-edit="transformations.stats.s1.number" data-edit-label="Stat 1 Number">10+</p>
+          <p class="stat__label" data-edit="transformations.stats.s1.label" data-edit-label="Stat 1 Label">Years of Practice</p>
         </div>
-        <div class="stat">
-          <p class="stat__number">1000+</p>
-          <p class="stat__label">Sessions Guided</p>
+        <div class="stat" data-order-id="sessions">
+          <p class="stat__number" data-edit="transformations.stats.s2.number" data-edit-label="Stat 2 Number">1000+</p>
+          <p class="stat__label" data-edit="transformations.stats.s2.label" data-edit-label="Stat 2 Label">Sessions Guided</p>
         </div>
-        <div class="stat">
-          <p class="stat__number">36+</p>
-          <p class="stat__label">Google Reviews</p>
+        <div class="stat" data-order-id="reviews">
+          <p class="stat__number" data-edit="transformations.stats.s3.number" data-edit-label="Stat 3 Number">36+</p>
+          <p class="stat__label" data-edit="transformations.stats.s3.label" data-edit-label="Stat 3 Label">Google Reviews</p>
         </div>
-        <div class="stat">
-          <p class="stat__number">&infin;</p>
-          <p class="stat__label">Love Given</p>
+        <div class="stat" data-order-id="love">
+          <p class="stat__number" data-edit="transformations.stats.s4.number" data-edit-label="Stat 4 Number">&infin;</p>
+          <p class="stat__label" data-edit="transformations.stats.s4.label" data-edit-label="Stat 4 Label">Love Given</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="section" style="background:rgba(30,58,42,0.1);">
+  <section class="section" data-edit-group="Closing CTA" style="background:rgba(30,58,42,0.1);">
     <div class="container container--text text-center">
-      <p class="eyebrow reveal">Your Story</p>
-      <h2 class="reveal">Ready to Write<br>Your Own Chapter?</h2>
-      <p class="lead reveal" style="margin:var(--space-sm) auto var(--space-md);">
+      <p class="eyebrow reveal" data-edit="transformations.cta.eyebrow" data-edit-label="Eyebrow">Your Story</p>
+      <h2 class="reveal" data-edit="transformations.cta.title" data-edit-label="Heading">Ready to Write<br>Your Own Chapter?</h2>
+      <p class="lead reveal" data-edit="transformations.cta.lead" data-edit-label="Lead Paragraph" style="margin:var(--space-sm) auto var(--space-md);">
         Every person who walks through the door writes a new story. Some come for pain. Some come for clarity. Some come because their soul simply said <em>&ldquo;it&rsquo;s time.&rdquo;</em>
       </p>
-      <p class="text-muted reveal" style="margin:0 auto var(--space-lg);max-width:50ch;">
+      <p class="text-muted reveal" data-edit="transformations.cta.body" data-edit-label="Body Paragraph" style="margin:0 auto var(--space-lg);max-width:50ch;">
         There is no wrong reason. There is only readiness.
       </p>
       <div class="reveal">
-        <a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="btn btn--primary">Inquire Now</a>
+        <a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="btn btn--primary" data-edit="transformations.cta.button" data-edit-label="Button">Inquire Now</a>
       </div>
     </div>
   </section>
@@ -190,13 +193,13 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" data-edit-group="Footer">
     <div class="container">
       <div class="footer__inner">
         <div class="footer__brand">
-          <p class="footer__logo">A New <span>Dawn.Earth</span></p>
-          <p class="footer__tagline">A movement of soul remembering.</p>
-          <p style="font-size:0.85rem;color:var(--muted-text);line-height:1.7;">
+          <p class="footer__logo" data-edit="transformations.footer.logo" data-edit-label="Footer Logo">A New <span>Dawn.Earth</span></p>
+          <p class="footer__tagline" data-edit="transformations.footer.tagline" data-edit-label="Tagline">A movement of soul remembering.</p>
+          <p data-edit="transformations.footer.about" data-edit-label="About Text" style="font-size:0.85rem;color:var(--muted-text);line-height:1.7;">
             Co-creating with Misty Dawn Merrier &mdash; a Registered Massage Therapist, Soul Coach, Energy Intuitive &amp; Spiritual Liberator. Based in Canada and Hawaii, activating liberation all throughout planet earth.
           </p>
         </div>
@@ -222,8 +225,8 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2026 A New Dawn. All rights reserved.</p>
-        <p>Canada &amp; Hawaii &middot; Turtle Island</p>
+        <p data-edit="transformations.footer.copyright" data-edit-label="Copyright">&copy; 2026 A New Dawn. All rights reserved.</p>
+        <p data-edit="transformations.footer.location" data-edit-label="Location">Canada &amp; Hawaii &middot; Turtle Island</p>
       </div>
     </div>
   </footer>

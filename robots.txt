@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /editor
+Disallow: /api/
 
 Sitemap: https://anewdawn.earth/sitemap.xml

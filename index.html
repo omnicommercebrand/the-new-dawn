@@ -22,6 +22,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- A New Dawn editor overlay: instant theme (prevents color flash) + runtime loader -->
+  <script>(function(){try{var c=localStorage.getItem('nd_theme_cache_v1');if(c){var v=JSON.parse(c),r=document.documentElement;for(var k in v){if(k.charAt(0)==='-'&&typeof v[k]==='string')r.style.setProperty(k,v[k]);}}}catch(e){}})();</script>
+  <script type="module" src="js/overlay-runtime.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -69,7 +72,7 @@
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="/" class="nav__logo">A New <span>Dawn.Earth</span></a>
+      <a href="/" class="nav__logo" data-edit="home.nav.logo" data-edit-label="Logo Text" data-edit-group="Navigation">A New <span>Dawn.Earth</span></a>
       <ul class="nav__links" id="navLinks">
         <li><a href="/" class="active">Home</a></li>
         <li><a href="/mission">Mission</a></li>
@@ -77,7 +80,7 @@
         <li><a href="/transformations">Transformations</a></li>
         <li><a href="/offerings">Offerings</a></li>
         <li><a href="/reviews">Reviews</a></li>
-        <li><a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="nav__cta">Book a Session</a></li>
+        <li><a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="nav__cta" data-edit="home.nav.cta" data-edit-label="Nav Button" data-edit-group="Navigation">Book a Session</a></li>
       </ul>
       <button class="nav__toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -88,9 +91,9 @@
   <main>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" data-edit-group="Hero">
     <div class="hero__bg">
-      <div class="placeholder-image hero__bg-image" style="opacity:0.15;min-height:100vh;"></div>
+      <div class="placeholder-image hero__bg-image" data-edit-bg="home.hero.bg" data-edit-label="Hero Background Image" style="opacity:0.15;min-height:100vh;"></div>
     </div>
 
     <!-- Sacred geometry background -->
@@ -105,20 +108,20 @@
     </svg>
 
     <div class="hero__content">
-      <p class="hero__eyebrow">Welcome to A New Dawn.Earth</p>
-      <h1 class="hero__title">You Know Who<br>You <em>Are</em></h1>
-      <p class="hero__subtitle">
+      <p class="hero__eyebrow" data-edit="home.hero.eyebrow" data-edit-label="Hero Eyebrow">Welcome to A New Dawn.Earth</p>
+      <h1 class="hero__title" data-edit="home.hero.title" data-edit-label="Hero Heading">You Know Who<br>You <em>Are</em></h1>
+      <p class="hero__subtitle" data-edit="home.hero.subtitle" data-edit-label="Hero Subtitle">
         Claim your power. Every day is A New Dawn to embody who you truly are.
       </p>
-      <div class="hero__offerings">
-        <span>Body, Mind, Soul Ceremonial Sessions</span>
-        <span>Body, Mind, Soul Coaching</span>
-        <span>Energetic Healing &amp; Alignment</span>
-        <span>Buildings &amp; Earth Optimization</span>
+      <div class="hero__offerings" data-section="home.hero.tags" data-edit-label="Hero Tags (drag to reorder)">
+        <span data-order-id="tag1" data-edit="home.hero.tag1" data-edit-label="Tag 1">Body, Mind, Soul Ceremonial Sessions</span>
+        <span data-order-id="tag2" data-edit="home.hero.tag2" data-edit-label="Tag 2">Body, Mind, Soul Coaching</span>
+        <span data-order-id="tag3" data-edit="home.hero.tag3" data-edit-label="Tag 3">Energetic Healing &amp; Alignment</span>
+        <span data-order-id="tag4" data-edit="home.hero.tag4" data-edit-label="Tag 4">Buildings &amp; Earth Optimization</span>
       </div>
       <div class="hero__cta-group">
-        <a href="/offerings" class="btn btn--primary">Explore the Work</a>
-        <a href="#apply" class="btn btn--outline">Inquire to Work Together</a>
+        <a href="/offerings" class="btn btn--primary" data-edit="home.hero.cta1" data-edit-label="Primary Button">Explore the Work</a>
+        <a href="#apply" class="btn btn--outline" data-edit="home.hero.cta2" data-edit-label="Secondary Button">Inquire to Work Together</a>
       </div>
     </div>
 
@@ -128,151 +131,151 @@
   </section>
 
   <!-- Mission Preview -->
-  <section class="section section--large">
+  <section class="section section--large" data-edit-group="Mission Preview" data-hideable="home.mission" data-edit-label="Mission Preview Section">
     <div class="container container--text text-center">
       <div class="divider reveal">
         <span class="divider__line"></span>
         <span class="divider__diamond"></span>
         <span class="divider__line"></span>
       </div>
-      <p class="eyebrow reveal">A New Dawn</p>
-      <h2 class="reveal">A Portal to Embodying<br>Your <em>Infinite Intelligence</em></h2>
-      <p class="lead reveal" style="margin:var(--space-md) auto var(--space-md);">
+      <p class="eyebrow reveal" data-edit="home.mission.eyebrow" data-edit-label="Eyebrow">A New Dawn</p>
+      <h2 class="reveal" data-edit="home.mission.title" data-edit-label="Heading">A Portal to Embodying<br>Your <em>Infinite Intelligence</em></h2>
+      <p class="lead reveal" data-edit="home.mission.lead" data-edit-label="Lead Paragraph" style="margin:var(--space-md) auto var(--space-md);">
         As we transmute and activate the energies within our cells, we assist in the process of Earth&rsquo;s evolution too. This is not just healing &mdash; it is remembering who we are, why our souls are here, for the betterment of humanity and for Earth.
       </p>
-      <p class="text-muted reveal" style="margin:0 auto var(--space-lg);max-width:60ch;">
+      <p class="text-muted reveal" data-edit="home.mission.body" data-edit-label="Body Paragraph" style="margin:0 auto var(--space-lg);max-width:60ch;">
         A New Dawn is a journey for those ready to fully feel, transmute what is stagnant, and embody their heart&rsquo;s infinite intelligence, soul&rsquo;s inner knowing, creative genius. Flow. Peace. Joy. Prosperity. Authentic Expression.
       </p>
-      <a href="/mission" class="btn btn--ghost reveal">Discover the Mission &rarr;</a>
+      <a href="/mission" class="btn btn--ghost reveal" data-edit="home.mission.cta" data-edit-label="Button">Discover the Mission &rarr;</a>
     </div>
   </section>
 
   <!-- Values / Pillars -->
-  <section class="section" style="background:rgba(30,58,42,0.1);">
+  <section class="section" data-edit-group="Pillars" data-hideable="home.pillars" data-edit-label="Pillars Section" style="background:rgba(30,58,42,0.1);">
     <div class="container">
       <div class="text-center" style="margin-bottom:var(--space-xl);">
-        <p class="eyebrow reveal">Co-created with</p>
-        <h2 class="reveal">Safety. Honesty. Alchemy. Love.</h2>
+        <p class="eyebrow reveal" data-edit="home.pillars.eyebrow" data-edit-label="Eyebrow">Co-created with</p>
+        <h2 class="reveal" data-edit="home.pillars.title" data-edit-label="Heading">Safety. Honesty. Alchemy. Love.</h2>
       </div>
-      <div class="pillars">
-        <div class="pillar reveal reveal-delay-1">
+      <div class="pillars" data-section="home.pillars.items" data-edit-label="Pillars (drag to reorder)">
+        <div class="pillar reveal reveal-delay-1" data-order-id="safety">
           <span class="pillar__icon">&#9672;</span>
-          <h4 class="pillar__title">Safety</h4>
-          <p class="pillar__text">A sacred, loving space where you can fully feel without judgment. Everything shared is held in complete confidentiality.</p>
+          <h4 class="pillar__title" data-edit="home.pillars.safety.title" data-edit-label="Pillar 1 Title">Safety</h4>
+          <p class="pillar__text" data-edit="home.pillars.safety.text" data-edit-label="Pillar 1 Text">A sacred, loving space where you can fully feel without judgment. Everything shared is held in complete confidentiality.</p>
         </div>
-        <div class="pillar reveal reveal-delay-2">
+        <div class="pillar reveal reveal-delay-2" data-order-id="honesty">
           <span class="pillar__icon">&#9673;</span>
-          <h4 class="pillar__title">Honesty</h4>
-          <p class="pillar__text">Transformation requires the courage to be fully honest with yourself. Without that, it takes years. With it &mdash; everything shifts instantly.</p>
+          <h4 class="pillar__title" data-edit="home.pillars.honesty.title" data-edit-label="Pillar 2 Title">Honesty</h4>
+          <p class="pillar__text" data-edit="home.pillars.honesty.text" data-edit-label="Pillar 2 Text">Transformation requires the courage to be fully honest with yourself. Without that, it takes years. With it &mdash; everything shifts instantly.</p>
         </div>
-        <div class="pillar reveal reveal-delay-3">
+        <div class="pillar reveal reveal-delay-3" data-order-id="alchemy">
           <span class="pillar__icon">&#10022;</span>
-          <h4 class="pillar__title">Alchemy</h4>
-          <p class="pillar__text">Every session is completely unique. What emerges depends on what your body, mind and soul are ready for &mdash; your highest soul leads the way.</p>
+          <h4 class="pillar__title" data-edit="home.pillars.alchemy.title" data-edit-label="Pillar 3 Title">Alchemy</h4>
+          <p class="pillar__text" data-edit="home.pillars.alchemy.text" data-edit-label="Pillar 3 Text">Every session is completely unique. What emerges depends on what your body, mind and soul are ready for &mdash; your highest soul leads the way.</p>
         </div>
-        <div class="pillar reveal reveal-delay-4">
+        <div class="pillar reveal reveal-delay-4" data-order-id="love">
           <span class="pillar__icon">&#10038;</span>
-          <h4 class="pillar__title">Love</h4>
-          <p class="pillar__text">Love heals, transmutes, transforms and alchemizes. Together we expedite the process in creating coherence in body, mind and soul. And thus, Earth.</p>
+          <h4 class="pillar__title" data-edit="home.pillars.love.title" data-edit-label="Pillar 4 Title">Love</h4>
+          <p class="pillar__text" data-edit="home.pillars.love.text" data-edit-label="Pillar 4 Text">Love heals, transmutes, transforms and alchemizes. Together we expedite the process in creating coherence in body, mind and soul. And thus, Earth.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Offerings Preview -->
-  <section class="section section--large">
+  <section class="section section--large" data-edit-group="Offerings Preview" data-hideable="home.offerings" data-edit-label="Offerings Section">
     <div class="container">
       <div class="text-center" style="margin-bottom:var(--space-xl);">
-        <p class="eyebrow reveal">Heart &amp; Soul Led Offerings</p>
-        <h2 class="reveal">Body. Mind. Soul.</h2>
+        <p class="eyebrow reveal" data-edit="home.offerings.eyebrow" data-edit-label="Eyebrow">Heart &amp; Soul Led Offerings</p>
+        <h2 class="reveal" data-edit="home.offerings.title" data-edit-label="Heading">Body. Mind. Soul.</h2>
       </div>
-      <div class="grid grid-3">
-        <div class="card reveal reveal-delay-1">
+      <div class="grid grid-3" data-section="home.offerings.cards" data-edit-label="Offering Cards (drag to reorder)">
+        <div class="card reveal reveal-delay-1" data-order-id="ceremonial">
           <svg class="card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1"/>
             <path d="M24 8v32M8 24h32" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
             <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="0.5"/>
           </svg>
-          <p class="card__eyebrow">Body. Mind. Soul.</p>
-          <h3 class="card__title">Ceremonial Session</h3>
-          <p class="card__text">A personalized healing; blending bodywork, energy activation, and spiritual clearing, guided by your intention for transformation. Tobacco is offered for this experience.</p>
+          <p class="card__eyebrow" data-edit="home.offerings.c1.eyebrow" data-edit-label="Card 1 Eyebrow">Body. Mind. Soul.</p>
+          <h3 class="card__title" data-edit="home.offerings.c1.title" data-edit-label="Card 1 Title">Ceremonial Session</h3>
+          <p class="card__text" data-edit="home.offerings.c1.text" data-edit-label="Card 1 Text">A personalized healing; blending bodywork, energy activation, and spiritual clearing, guided by your intention for transformation. Tobacco is offered for this experience.</p>
           <a href="/offerings" class="btn btn--ghost">Learn More &rarr;</a>
         </div>
-        <div class="card reveal reveal-delay-2">
+        <div class="card reveal reveal-delay-2" data-order-id="coaching">
           <svg class="card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M24 4l4 8 8 1-6 6 2 8-8-4-8 4 2-8-6-6 8-1z" stroke="currentColor" stroke-width="1" fill="none"/>
             <circle cx="24" cy="30" r="10" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
           </svg>
-          <p class="card__eyebrow">Body. Mind. Soul.</p>
-          <h3 class="card__title">Coaching &amp; Energetic Alignment</h3>
-          <p class="card__text">Transmute stagnation in any area of your life. Increase momentum, clarity, drive and awareness.</p>
+          <p class="card__eyebrow" data-edit="home.offerings.c2.eyebrow" data-edit-label="Card 2 Eyebrow">Body. Mind. Soul.</p>
+          <h3 class="card__title" data-edit="home.offerings.c2.title" data-edit-label="Card 2 Title">Coaching &amp; Energetic Alignment</h3>
+          <p class="card__text" data-edit="home.offerings.c2.text" data-edit-label="Card 2 Text">Transmute stagnation in any area of your life. Increase momentum, clarity, drive and awareness.</p>
           <a href="/offerings" class="btn btn--ghost">Learn More &rarr;</a>
         </div>
-        <div class="card reveal reveal-delay-3">
+        <div class="card reveal reveal-delay-3" data-order-id="earth">
           <svg class="card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="8" y="8" width="32" height="32" rx="2" stroke="currentColor" stroke-width="1" fill="none"/>
             <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="0.5"/>
             <path d="M24 12v6M24 30v6M12 24h6M30 24h6" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
           </svg>
-          <p class="card__eyebrow">Earth. Space. Energy.</p>
-          <h3 class="card__title">Earth Optimization</h3>
-          <p class="card__text">Ensure harmony in buildings, homes, businesses, sites; transmutation of stagnant and spiritual energies for desired outcomes.</p>
+          <p class="card__eyebrow" data-edit="home.offerings.c3.eyebrow" data-edit-label="Card 3 Eyebrow">Earth. Space. Energy.</p>
+          <h3 class="card__title" data-edit="home.offerings.c3.title" data-edit-label="Card 3 Title">Earth Optimization</h3>
+          <p class="card__text" data-edit="home.offerings.c3.text" data-edit-label="Card 3 Text">Ensure harmony in buildings, homes, businesses, sites; transmutation of stagnant and spiritual energies for desired outcomes.</p>
           <a href="/offerings" class="btn btn--ghost">Learn More &rarr;</a>
         </div>
       </div>
       <div class="text-center reveal" style="margin-top:var(--space-xl);">
-        <a href="/offerings" class="btn btn--outline">View All Offerings</a>
+        <a href="/offerings" class="btn btn--outline" data-edit="home.offerings.cta" data-edit-label="View All Button">View All Offerings</a>
       </div>
     </div>
   </section>
 
   <!-- Testimonial -->
-  <section class="section" style="background:rgba(30,58,42,0.1);">
+  <section class="section" data-edit-group="Testimonial" data-hideable="home.testimonial" data-edit-label="Testimonial Section" style="background:rgba(30,58,42,0.1);">
     <div class="container">
       <div class="testimonial reveal-scale">
-        <p class="testimonial__text">
+        <p class="testimonial__text" data-edit="home.testimonial.text" data-edit-label="Quote">
           &ldquo;Shakina Ray is just what her name states, a ray of light shining from the heart of the goddess herself. My experience working with Shakina was a game changer. She holds a fierce and tender space of devotional presence that allows for root causes to be unearthed. I highly recommend working with Shakina if you are desiring to embody your truest essence.&rdquo;
         </p>
-        <p class="testimonial__author">&mdash; Alexandra Fatima Mathews</p>
+        <p class="testimonial__author" data-edit="home.testimonial.author" data-edit-label="Author">&mdash; Alexandra Fatima Mathews</p>
       </div>
     </div>
   </section>
 
   <!-- Who This Is For -->
-  <section class="section section--large">
+  <section class="section section--large" data-edit-group="Transform (Image + Text)" data-hideable="home.transform" data-edit-label="Image + Text Section">
     <div class="container">
       <div class="image-text">
         <div class="image-text__image reveal">
-          <img src="images/misty-dawn.jpg" alt="Misty Dawn Merrier — Shakina Ray — Healing Guide, RMT, Soul Coach, Energy Intuitive &amp; Spiritual Liberator" loading="lazy">
+          <img src="images/misty-dawn.jpg" alt="Misty Dawn Merrier — Shakina Ray — Healing Guide, RMT, Soul Coach, Energy Intuitive &amp; Spiritual Liberator" loading="lazy" data-edit-img="home.transform.image" data-edit-label="Photo">
         </div>
         <div class="reveal">
-          <h2>You know you are<br>ready to <em class="text-gold">transform</em>.</h2>
-          <p class="lead" style="margin:var(--space-md) 0;">
+          <h2 data-edit="home.transform.title" data-edit-label="Heading">You know you are<br>ready to <em class="text-gold">transform</em>.</h2>
+          <p class="lead" data-edit="home.transform.lead" data-edit-label="Lead Paragraph" style="margin:var(--space-md) 0;">
             Perhaps it is chronic pain in the body, a business that won&rsquo;t grow, a house that won&rsquo;t sell, a heaviness you can&rsquo;t name. A relationship that needs deeper healing.
           </p>
-          <p class="text-muted" style="margin-bottom:var(--space-md);">
+          <p class="text-muted" data-edit="home.transform.body" data-edit-label="Body Paragraph" style="margin-bottom:var(--space-md);">
             There is something stagnant that needs to be honoured and transmuted. You have the courage to feel it and acknowledge it &mdash; and transform it into wisdom.
           </p>
-          <p style="margin-bottom:var(--space-lg);">
+          <p data-edit="home.transform.truth" data-edit-label="Highlight Paragraph" style="margin-bottom:var(--space-lg);">
             <strong class="text-gold">The honest truth.</strong><br>
             It is all already within you. I am here to expedite the process.
           </p>
-          <a href="#apply" class="btn btn--primary">Begin the Journey</a>
+          <a href="#apply" class="btn btn--primary" data-edit="home.transform.cta" data-edit-label="Button">Begin the Journey</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-section">
+  <section class="cta-section" data-edit-group="Closing CTA">
     <div class="container container--text">
-      <p class="eyebrow reveal">The Next Legacy of Earth Begins with You</p>
-      <h2 class="reveal" id="apply">You are ready to be in full alignment<br>in body, mind &amp; soul.</h2>
-      <p class="lead reveal" style="margin:var(--space-sm) auto var(--space-lg);">
+      <p class="eyebrow reveal" data-edit="home.cta.eyebrow" data-edit-label="Eyebrow">The Next Legacy of Earth Begins with You</p>
+      <h2 class="reveal" id="apply" data-edit="home.cta.title" data-edit-label="Heading">You are ready to be in full alignment<br>in body, mind &amp; soul.</h2>
+      <p class="lead reveal" data-edit="home.cta.lead" data-edit-label="Lead Paragraph" style="margin:var(--space-sm) auto var(--space-lg);">
         Inquire for a conversation for what may best suit you.
       </p>
       <div class="reveal">
-        <a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="btn btn--primary">Inquire Now</a>
+        <a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="btn btn--primary" data-edit="home.cta.button" data-edit-label="Button">Inquire Now</a>
       </div>
     </div>
   </section>
@@ -280,13 +283,13 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" data-edit-group="Footer">
     <div class="container">
       <div class="footer__inner">
         <div class="footer__brand">
-          <p class="footer__logo">A New <span>Dawn.Earth</span></p>
-          <p class="footer__tagline">A movement of soul remembering.</p>
-          <p style="font-size:0.85rem;color:var(--muted-text);line-height:1.7;">
+          <p class="footer__logo" data-edit="home.footer.logo" data-edit-label="Footer Logo">A New <span>Dawn.Earth</span></p>
+          <p class="footer__tagline" data-edit="home.footer.tagline" data-edit-label="Tagline">A movement of soul remembering.</p>
+          <p data-edit="home.footer.about" data-edit-label="About Text" style="font-size:0.85rem;color:var(--muted-text);line-height:1.7;">
             Co-creating with Misty Dawn Merrier &mdash; a Registered Massage Therapist, Soul Coach, Energy Intuitive &amp; Spiritual Liberator. Based in Canada and Hawaii, activating liberation all throughout planet earth.
           </p>
         </div>
@@ -312,8 +315,8 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2026 A New Dawn. All rights reserved.</p>
-        <p>Canada &amp; Hawaii &middot; Turtle Island</p>
+        <p data-edit="home.footer.copyright" data-edit-label="Copyright">&copy; 2026 A New Dawn. All rights reserved.</p>
+        <p data-edit="home.footer.location" data-edit-label="Location">Canada &amp; Hawaii &middot; Turtle Island</p>
       </div>
     </div>
   </footer>

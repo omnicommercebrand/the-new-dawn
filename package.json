@@ -1,0 +1,14 @@
+{
+  "name": "the-new-dawn",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A New Dawn — static site with content-overlay editor",
+  "scripts": {
+    "test": "node --test tests/",
+    "dev": "node scripts/dev-server.js"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.4.1"
+  }
+}

@@ -19,13 +19,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- A New Dawn editor overlay: instant theme (prevents color flash) + runtime loader -->
+  <script>(function(){try{var c=localStorage.getItem('nd_theme_cache_v1');if(c){var v=JSON.parse(c),r=document.documentElement;for(var k in v){if(k.charAt(0)==='-'&&typeof v[k]==='string')r.style.setProperty(k,v[k]);}}}catch(e){}})();</script>
+  <script type="module" src="js/overlay-runtime.js"></script>
 </head>
 <body>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="/" class="nav__logo">A New <span>Dawn.Earth</span></a>
+      <a href="/" class="nav__logo" data-edit="mission.nav.logo" data-edit-label="Logo Text" data-edit-group="Navigation">A New <span>Dawn.Earth</span></a>
       <ul class="nav__links" id="navLinks">
         <li><a href="/">Home</a></li>
         <li><a href="/mission" class="active">Mission</a></li>
@@ -33,7 +36,7 @@
         <li><a href="/transformations">Transformations</a></li>
         <li><a href="/offerings">Offerings</a></li>
         <li><a href="/reviews">Reviews</a></li>
-        <li><a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="nav__cta">Book a Session</a></li>
+        <li><a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="nav__cta" data-edit="mission.nav.cta" data-edit-label="Nav Button" data-edit-group="Navigation">Book a Session</a></li>
       </ul>
       <button class="nav__toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -44,48 +47,48 @@
   <main>
 
   <!-- Page Header -->
-  <header class="page-header">
+  <header class="page-header" data-edit-group="Page Header">
     <div class="container container--text">
-      <p class="eyebrow reveal">The Movement</p>
-      <h1 class="page-header__title reveal">A New Dawn</h1>
-      <p class="page-header__subtitle reveal">
+      <p class="eyebrow reveal" data-edit="mission.header.eyebrow" data-edit-label="Eyebrow">The Movement</p>
+      <h1 class="page-header__title reveal" data-edit="mission.header.title" data-edit-label="Page Heading">A New Dawn</h1>
+      <p class="page-header__subtitle reveal" data-edit="mission.header.subtitle" data-edit-label="Subtitle">
         A call to remember who we are, why we are here &mdash; for humanity and for Earth.
       </p>
     </div>
   </header>
 
   <!-- The Vision -->
-  <section class="section section--large">
+  <section class="section section--large" data-edit-group="Vision" data-hideable="mission.vision" data-edit-label="Vision Section">
     <div class="container container--text">
       <div class="divider reveal">
         <span class="divider__line"></span>
         <span class="divider__diamond"></span>
         <span class="divider__line"></span>
       </div>
-      <h2 class="text-center reveal">We Are Earth</h2>
-      <p class="lead reveal" style="margin:var(--space-md) auto;">
+      <h2 class="text-center reveal" data-edit="mission.vision.title" data-edit-label="Heading">We Are Earth</h2>
+      <p class="lead reveal" data-edit="mission.vision.lead" data-edit-label="Lead Paragraph" style="margin:var(--space-md) auto;">
         Earth is a profoundly intelligent being. She breathes. She remembers. She is expanding &mdash; just as we are. The more we activate and clear the dense energies within ourselves, the more we help clear the planet too.
       </p>
-      <p class="text-muted reveal" style="margin:var(--space-sm) auto;">
+      <p class="text-muted reveal" data-edit="mission.vision.body" data-edit-label="Body Paragraph" style="margin:var(--space-sm) auto;">
         If we are not caring for her, it is a reflection of how we are not caring for ourselves. The two are inseparable. This is not metaphor. This is physics. This is spirit. This is the work.
       </p>
     </div>
   </section>
 
   <!-- Gridwork Section -->
-  <section class="section" style="background:rgba(30,58,42,0.1);">
+  <section class="section" data-edit-group="Gridwork (Image + Text)" data-hideable="mission.gridwork" data-edit-label="Gridwork Section" style="background:rgba(30,58,42,0.1);">
     <div class="container">
       <div class="image-text image-text--reverse">
         <div class="image-text__image reveal">
-          <div class="placeholder-image" style="aspect-ratio:4/5;">Earth & Sacred Geometry</div>
+          <div class="placeholder-image" data-edit-bg="mission.gridwork.image" data-edit-label="Image" style="aspect-ratio:4/5;">Earth & Sacred Geometry</div>
         </div>
         <div class="reveal">
-          <p class="eyebrow">Gridwork & Lightwork</p>
-          <h2>The Planet Is<br>Calling Us <em class="text-gold">Home</em></h2>
-          <p class="lead" style="margin:var(--space-md) 0;">
+          <p class="eyebrow" data-edit="mission.gridwork.eyebrow" data-edit-label="Eyebrow">Gridwork & Lightwork</p>
+          <h2 data-edit="mission.gridwork.title" data-edit-label="Heading">The Planet Is<br>Calling Us <em class="text-gold">Home</em></h2>
+          <p class="lead" data-edit="mission.gridwork.lead" data-edit-label="Lead Paragraph" style="margin:var(--space-md) 0;">
             Gridworkers and lightworkers are souls remembering that we are not separate from the earth &mdash; we <em>are</em> the earth. Every ancestral pattern cleared, every trapped emotion released, every dense energy transmuted &mdash; it ripples outward.
           </p>
-          <p class="text-muted" style="margin-bottom:var(--space-md);">
+          <p class="text-muted" data-edit="mission.gridwork.body" data-edit-label="Body Paragraph" style="margin-bottom:var(--space-md);">
             This is the sacred work of our time. Not fighting what is dark, but illuminating what has always been light within. As above, so below. As within, so without.
           </p>
         </div>
@@ -94,80 +97,80 @@
   </section>
 
   <!-- What's Stuck -->
-  <section class="section section--large">
+  <section class="section section--large" data-edit-group="When Something Won't Move" data-hideable="mission.stuck" data-edit-label="Stuck Section">
     <div class="container container--text text-center">
-      <p class="eyebrow reveal">The Invisible Architecture</p>
-      <h2 class="reveal">When Something<br>Won&rsquo;t Move</h2>
-      <p class="lead reveal" style="margin:var(--space-md) auto;">
+      <p class="eyebrow reveal" data-edit="mission.stuck.eyebrow" data-edit-label="Eyebrow">The Invisible Architecture</p>
+      <h2 class="reveal" data-edit="mission.stuck.title" data-edit-label="Heading">When Something<br>Won&rsquo;t Move</h2>
+      <p class="lead reveal" data-edit="mission.stuck.lead" data-edit-label="Lead Paragraph" style="margin:var(--space-md) auto;">
         Why won&rsquo;t the house sell? Why won&rsquo;t the business grow &mdash; no matter what you try? Why does chronic pain persist despite every treatment?
       </p>
-      <p class="text-muted reveal" style="margin:var(--space-sm) auto var(--space-lg);">
+      <p class="text-muted reveal" data-edit="mission.stuck.body" data-edit-label="Body Paragraph" style="margin:var(--space-sm) auto var(--space-lg);">
         Something is stuck in the energetic field. It may be ancestral. It may be karmic. It may be from this lifetime or another. Whatever it is &mdash; it needs to be honoured, witnessed, and transmuted. Not bypassed. Not ignored. <em>Felt.</em>
       </p>
 
-      <div class="quote reveal">
+      <div class="quote reveal" data-edit="mission.stuck.quote" data-edit-label="Quote">
         There is an invisible architecture beneath everything we experience. When we shift that architecture, the visible world transforms with it.
       </div>
     </div>
   </section>
 
   <!-- The Dance -->
-  <section class="section" style="background:rgba(30,58,42,0.1);">
+  <section class="section" data-edit-group="The Invitation (Image + Text)" data-hideable="mission.dance" data-edit-label="Invitation Section" style="background:rgba(30,58,42,0.1);">
     <div class="container">
       <div class="image-text">
         <div class="image-text__image reveal">
-          <div class="placeholder-image" style="aspect-ratio:4/5;">Sunrise & Golden Light</div>
+          <div class="placeholder-image" data-edit-bg="mission.dance.image" data-edit-label="Image" style="aspect-ratio:4/5;">Sunrise & Golden Light</div>
         </div>
         <div class="reveal">
-          <p class="eyebrow">The Invitation</p>
-          <h2>Dance With<br>Your Own <em class="text-gold">Dawn</em></h2>
-          <p class="lead" style="margin:var(--space-md) 0;">
+          <p class="eyebrow" data-edit="mission.dance.eyebrow" data-edit-label="Eyebrow">The Invitation</p>
+          <h2 data-edit="mission.dance.title" data-edit-label="Heading">Dance With<br>Your Own <em class="text-gold">Dawn</em></h2>
+          <p class="lead" data-edit="mission.dance.lead" data-edit-label="Lead Paragraph" style="margin:var(--space-md) 0;">
             A New Dawn is not about arriving somewhere new. It is about returning to where you have always been &mdash; whole, powerful, and deeply connected to all that is.
           </p>
-          <p class="text-muted" style="margin-bottom:var(--space-sm);">
+          <p class="text-muted" data-edit="mission.dance.body1" data-edit-label="Body Paragraph 1" style="margin-bottom:var(--space-sm);">
             Dense energies that have been stuck for generations are ready to be harnessed and transmuted. Not through force. Through <strong class="text-gold">flow</strong>. Through <strong class="text-gold">peace</strong>. Through <strong class="text-gold">love</strong>.
           </p>
-          <p class="text-muted" style="margin-bottom:var(--space-lg);">
+          <p class="text-muted" data-edit="mission.dance.body2" data-edit-label="Body Paragraph 2" style="margin-bottom:var(--space-lg);">
             When you step into this work, you step into your creative genius. Your joy. Your purpose. The planet needs you in your fullest expression &mdash; not dimmed, not playing small, not carrying what was never yours to carry.
           </p>
-          <a href="/offerings" class="btn btn--primary">Step Into the Work</a>
+          <a href="/offerings" class="btn btn--primary" data-edit="mission.dance.cta" data-edit-label="Button">Step Into the Work</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Promise -->
-  <section class="section section--large">
+  <section class="section section--large" data-edit-group="The Promise" data-hideable="mission.promise" data-edit-label="Promise Section">
     <div class="container container--narrow text-center">
-      <p class="eyebrow reveal">The Promise</p>
-      <h2 class="reveal">What Awaits You</h2>
-      <div class="grid grid-3" style="margin-top:var(--space-xl);">
-        <div class="reveal reveal-delay-1" style="text-align:center;">
-          <h3 class="text-gold" style="font-size:2.5rem;margin-bottom:0.5rem;">Flow</h3>
-          <p class="text-muted" style="font-size:0.9rem;">When what was stuck begins to move, life flows again. Decisions become clear. Paths open. You stop fighting and start dancing.</p>
+      <p class="eyebrow reveal" data-edit="mission.promise.eyebrow" data-edit-label="Eyebrow">The Promise</p>
+      <h2 class="reveal" data-edit="mission.promise.title" data-edit-label="Heading">What Awaits You</h2>
+      <div class="grid grid-3" data-section="mission.promise.cards" data-edit-label="Promise Cards (drag to reorder)" style="margin-top:var(--space-xl);">
+        <div class="reveal reveal-delay-1" data-order-id="flow" style="text-align:center;">
+          <h3 class="text-gold" data-edit="mission.promise.c1.title" data-edit-label="Card 1 Title" style="font-size:2.5rem;margin-bottom:0.5rem;">Flow</h3>
+          <p class="text-muted" data-edit="mission.promise.c1.text" data-edit-label="Card 1 Text" style="font-size:0.9rem;">When what was stuck begins to move, life flows again. Decisions become clear. Paths open. You stop fighting and start dancing.</p>
         </div>
-        <div class="reveal reveal-delay-2" style="text-align:center;">
-          <h3 class="text-gold" style="font-size:2.5rem;margin-bottom:0.5rem;">Peace</h3>
-          <p class="text-muted" style="font-size:0.9rem;">Not the absence of chaos, but the presence of deep inner stillness. A peace that comes from knowing exactly who you are and why you are here.</p>
+        <div class="reveal reveal-delay-2" data-order-id="peace" style="text-align:center;">
+          <h3 class="text-gold" data-edit="mission.promise.c2.title" data-edit-label="Card 2 Title" style="font-size:2.5rem;margin-bottom:0.5rem;">Peace</h3>
+          <p class="text-muted" data-edit="mission.promise.c2.text" data-edit-label="Card 2 Text" style="font-size:0.9rem;">Not the absence of chaos, but the presence of deep inner stillness. A peace that comes from knowing exactly who you are and why you are here.</p>
         </div>
-        <div class="reveal reveal-delay-3" style="text-align:center;">
-          <h3 class="text-gold" style="font-size:2.5rem;margin-bottom:0.5rem;">Joy</h3>
-          <p class="text-muted" style="font-size:0.9rem;">Your natural state, uncovered. Not manufactured positivity &mdash; genuine, embodied joy that comes from creative genius fully unleashed.</p>
+        <div class="reveal reveal-delay-3" data-order-id="joy" style="text-align:center;">
+          <h3 class="text-gold" data-edit="mission.promise.c3.title" data-edit-label="Card 3 Title" style="font-size:2.5rem;margin-bottom:0.5rem;">Joy</h3>
+          <p class="text-muted" data-edit="mission.promise.c3.text" data-edit-label="Card 3 Text" style="font-size:0.9rem;">Your natural state, uncovered. Not manufactured positivity &mdash; genuine, embodied joy that comes from creative genius fully unleashed.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-section">
+  <section class="cta-section" data-edit-group="Closing CTA">
     <div class="container container--text">
-      <p class="eyebrow reveal">Your Soul Led You Here</p>
-      <h2 class="reveal">This Feels Right,<br>Doesn&rsquo;t It?</h2>
-      <p class="lead reveal" style="margin:var(--space-sm) auto var(--space-lg);">
+      <p class="eyebrow reveal" data-edit="mission.cta.eyebrow" data-edit-label="Eyebrow">Your Soul Led You Here</p>
+      <h2 class="reveal" data-edit="mission.cta.title" data-edit-label="Heading">This Feels Right,<br>Doesn&rsquo;t It?</h2>
+      <p class="lead reveal" data-edit="mission.cta.lead" data-edit-label="Lead Paragraph" style="margin:var(--space-sm) auto var(--space-lg);">
         That quiet knowing. The sense that this is exactly what the next part of your journey needs. Trust it.
       </p>
       <div class="reveal">
-        <a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="btn btn--primary">Apply Now</a>
+        <a href="https://cal.com/anewdawn/30-min-meeting?overlayCalendar=true" target="_blank" class="btn btn--primary" data-edit="mission.cta.button" data-edit-label="Button">Apply Now</a>
       </div>
     </div>
   </section>
@@ -175,13 +178,13 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" data-edit-group="Footer">
     <div class="container">
       <div class="footer__inner">
         <div class="footer__brand">
-          <p class="footer__logo">A New <span>Dawn.Earth</span></p>
-          <p class="footer__tagline">A movement of soul remembering.</p>
-          <p style="font-size:0.85rem;color:var(--muted-text);line-height:1.7;">
+          <p class="footer__logo" data-edit="mission.footer.logo" data-edit-label="Footer Logo">A New <span>Dawn.Earth</span></p>
+          <p class="footer__tagline" data-edit="mission.footer.tagline" data-edit-label="Tagline">A movement of soul remembering.</p>
+          <p data-edit="mission.footer.about" data-edit-label="About Text" style="font-size:0.85rem;color:var(--muted-text);line-height:1.7;">
             Co-creating with Misty Dawn Merrier &mdash; a Registered Massage Therapist, Soul Coach, Energy Intuitive &amp; Spiritual Liberator. Based in Canada and Hawaii, activating liberation all throughout planet earth.
           </p>
         </div>
@@ -207,8 +210,8 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2026 A New Dawn. All rights reserved.</p>
-        <p>Canada &amp; Hawaii &middot; Turtle Island</p>
+        <p data-edit="mission.footer.copyright" data-edit-label="Copyright">&copy; 2026 A New Dawn. All rights reserved.</p>
+        <p data-edit="mission.footer.location" data-edit-label="Location">Canada &amp; Hawaii &middot; Turtle Island</p>
       </div>
     </div>
   </footer>
