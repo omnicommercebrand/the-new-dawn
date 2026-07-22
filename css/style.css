@@ -97,6 +97,13 @@ h2 { font-size: clamp(2rem, 4vw, 3.5rem); text-align: center; }
 h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 h4 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
 
+/* Italics inside headings always render in sacred gold, so text italicized
+   via the editor matches the hand-coded <em class="text-gold"> accents. */
+h1 em, h2 em, h3 em, h4 em {
+  font-style: italic;
+  color: var(--sacred-gold);
+}
+
 p { max-width: 65ch; }
 p.eyebrow, p.hero__eyebrow { max-width: none; }
 
