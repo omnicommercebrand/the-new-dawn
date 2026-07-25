@@ -48,9 +48,11 @@ const PAGES = [
   { id: 'index', label: 'Home', url: '/' },
   { id: 'mission', label: 'Mission', url: '/mission' },
   { id: 'offerings', label: 'Offerings', url: '/offerings' },
-  { id: 'reviews', label: 'Reviews', url: '/reviews' },
+  { id: 'events', label: 'Events', url: '/events' },
   { id: 'story', label: 'Story', url: '/story' },
   { id: 'transformations', label: 'Transformations', url: '/transformations' },
+  // Unlinked from the site nav, but kept editable — the testimonials still live here.
+  { id: 'reviews', label: 'Reviews (unlinked)', url: '/reviews' },
 ]
 
 // ---- State ---------------------------------------------------------------
