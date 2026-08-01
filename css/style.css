@@ -384,10 +384,10 @@ p.eyebrow, p.hero__eyebrow { max-width: none; }
   content: '';
   position: absolute;
   inset: 0;
+  /* Soft scrim only — the dawn image should stay vibrant while headline text remains readable. */
   background:
-    radial-gradient(ellipse at 50% 30%, rgba(201, 168, 76, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(196, 122, 110, 0.06) 0%, transparent 50%),
-    linear-gradient(180deg, var(--deep-earth) 0%, rgba(19, 38, 19, 0.9) 40%, rgba(42, 79, 58, 0.7) 70%, var(--deep-earth) 100%);
+    radial-gradient(ellipse at 50% 45%, rgba(19, 38, 19, 0.38) 0%, transparent 75%),
+    linear-gradient(180deg, rgba(19, 38, 19, 0.55) 0%, rgba(19, 38, 19, 0.18) 45%, rgba(19, 38, 19, 0.65) 100%);
   z-index: 1;
 }
 

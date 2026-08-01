@@ -81,6 +81,9 @@ function applyText(overlay) {
       key in map ? sanitizeHtml(map[key]) : baseText.has(key) ? baseText.get(key) : el.innerHTML
     // Nêhiyaw carries a circumflex the editor's keyboard flow tends to drop.
     html = html.replace(/Nehiyaw/g, 'Nêhiyaw')
+    // Footer location reads as a place list — render separators as middots
+    // even when a period was typed ("Canada . Hawaii" -> "Canada · Hawaii").
+    if (key.endsWith('.footer.location')) html = html.replace(/ \. /g, ' · ')
     if (el.innerHTML !== html) el.innerHTML = html
     // A cleared field often still holds <br> or &nbsp;, which renders as a
     // blank gap. Collapse those on the public page, but keep them visible in
