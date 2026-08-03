@@ -1517,3 +1517,151 @@ p.eyebrow, p.hero__eyebrow { max-width: none; }
     animation: none;
   }
 }
+
+/* --- Term links & glossary popovers (injected by overlay-runtime) --- */
+.term-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(201, 168, 76, 0.55);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+.term-link:hover { color: var(--gold-light); }
+
+.term-info { position: relative; white-space: nowrap; }
+.term-i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  margin-left: 4px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.6);
+  background: transparent;
+  color: var(--sacred-gold);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 10px;
+  line-height: 1;
+  cursor: pointer;
+  vertical-align: super;
+  padding: 0;
+}
+.term-i:hover { background: var(--gold-glow); }
+.term-pop {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%);
+  width: min(300px, 78vw);
+  padding: 0.8rem 1rem;
+  background: var(--forest, #132613);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  color: var(--soft-cream);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-style: normal;
+  line-height: 1.6;
+  white-space: normal;
+  text-align: left;
+  z-index: 50;
+}
+.term-info.open .term-pop { display: block; }
+
+/* --- Kinnect contact form --- */
+.kinnect-form {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 480px;
+  margin: var(--space-lg) auto 0;
+  text-align: left;
+}
+.kinnect-form input,
+.kinnect-form textarea {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 10px;
+  color: var(--warm-white);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+.kinnect-form input::placeholder,
+.kinnect-form textarea::placeholder { color: var(--muted-text); }
+.kinnect-form input:focus,
+.kinnect-form textarea:focus {
+  outline: none;
+  border-color: var(--sacred-gold);
+  background: rgba(255, 255, 255, 0.06);
+}
+.kinnect-form button { justify-self: center; margin-top: 0.4rem; }
+
+/* --- Social icon row --- */
+.social-row {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+  margin-top: 0.9rem;
+}
+.social-row a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  color: var(--sacred-gold);
+  transition: all 0.25s ease;
+}
+.social-row a:hover { background: var(--gold-glow); border-color: var(--sacred-gold); }
+.social-row svg { width: 16px; height: 16px; }
+
+/* --- Hero legibility over the vibrant dawn photo (esp. mobile) --- */
+.hero__eyebrow,
+.hero__subtitle,
+.hero__offerings,
+.hero__offerings * {
+  text-shadow: 0 1px 3px rgba(10, 16, 10, 0.75), 0 2px 18px rgba(10, 16, 10, 0.55);
+}
+.hero__title { text-shadow: 0 2px 6px rgba(10, 16, 10, 0.55), 0 6px 30px rgba(10, 16, 10, 0.45); }
+@media (max-width: 768px) {
+  .hero__bg::before {
+    background:
+      radial-gradient(ellipse at 50% 45%, rgba(19, 38, 19, 0.5) 0%, transparent 80%),
+      linear-gradient(180deg, rgba(19, 38, 19, 0.62) 0%, rgba(19, 38, 19, 0.35) 45%, rgba(19, 38, 19, 0.72) 100%);
+  }
+}
+
+/* --- Subtle sacred geometry behind cards (seed of life, faint gold) --- */
+.card {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23c9a84c' stroke-width='0.6' opacity='0.5'%3E%3Ccircle cx='100' cy='100' r='34'/%3E%3Ccircle cx='100' cy='66' r='34'/%3E%3Ccircle cx='100' cy='134' r='34'/%3E%3Ccircle cx='70.6' cy='83' r='34'/%3E%3Ccircle cx='70.6' cy='117' r='34'/%3E%3Ccircle cx='129.4' cy='83' r='34'/%3E%3Ccircle cx='129.4' cy='117' r='34'/%3E%3Ccircle cx='100' cy='100' r='68'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: top -40px right -40px;
+  background-size: 200px 200px;
+}
+
+/* --- Page-header dawn art (per page, behind a deep scrim) --- */
+.page-header--art {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+.page-header--art::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 26, 11, 0.66) 0%, rgba(11, 26, 11, 0.55) 55%, var(--deep-earth) 100%);
+}
+.page-header--art .container { position: relative; z-index: 1; }
+.page-header--art .page-header__title,
+.page-header--art .page-header__subtitle,
+.page-header--art .eyebrow {
+  text-shadow: 0 1px 3px rgba(10, 16, 10, 0.7), 0 2px 16px rgba(10, 16, 10, 0.5);
+}

@@ -155,6 +155,112 @@ function applyHidden(overlay) {
   })
 }
 
+// ---- Term links & glossary ------------------------------------------------
+// Modality names render as outbound links (or as an ⓘ popover when there is
+// no official page). Runs on PUBLIC pages only — never inside the editor
+// iframe — so annotations are display-time and never saved into the overlay.
+// Order matters: composite phrases must precede their sub-phrases.
+const TERM_RULES = [
+  { re: /Neurofascial(?:\s+Reset|\s+Specialist)?/g, url: 'https://www.rapidnfr.com/what-is-rapid' },
+  { re: /Onsen(?:\s+Structural\s*(?:&|and)\s*Functional\s+Alignment)?/g, url: 'https://www.onsentherapy.com/about' },
+  { re: /Emotion,\s*Body\s*&\s*Belief\s*Code/g, url: 'https://discoverhealing.com/' },
+  { re: /Emotion\s+Code/g, url: 'https://discoverhealing.com/the-emotion-code/' },
+  { re: /Body\s+Code/g, url: 'https://discoverhealing.com/the-body-code/' },
+  { re: /Belief\s+Code/g, url: 'https://discoverhealing.com/the-belief-code/' },
+  { re: /(?:Advanced\s+)?PSYCH-K®?/g, url: 'https://www.psych-k.com/about/' },
+  { re: /Registered\s+Massage\s+Therap(?:ist|y)/g,
+    desc: 'A licensed healthcare professional trained in therapeutic bodywork — assessment and treatment of soft tissue and joints to restore, maintain and rehabilitate physical function.' },
+  { re: /Healing\s+Guide/g,
+    desc: 'One who walks beside you through your own healing — holding space, reflecting truth, and supporting your remembrance of the healer within.' },
+  { re: /Gridworker/g,
+    desc: 'One who works with the energetic grid of the Earth — harmonizing land, sacred sites and spaces so that people and places can thrive.' },
+  { re: /Rainbow\s+Energy\s+Healing/g,
+    desc: 'A full-spectrum energy healing modality — restoring sensation, vitality and flow by working with the complete range of the body’s subtle energies.' },
+  { re: /\bCoach\b/g,
+    desc: 'Certified coaching for transformation — clarity, accountability and aligned action in life, health and business.' },
+]
+
+function annotateTerms() {
+  if (window.parent !== window) return // never inside the editor preview
+  const root = document.querySelector('main')
+  if (!root) return
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode(n) {
+      if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT
+      for (let e = n.parentElement; e && e !== root; e = e.parentElement) {
+        const t = e.tagName
+        if (t === 'A' || t === 'SCRIPT' || t === 'STYLE' || t === 'BUTTON' || t === 'FORM') return NodeFilter.FILTER_REJECT
+        if (e.classList.contains('term-link') || e.classList.contains('term-info')) return NodeFilter.FILTER_REJECT
+      }
+      return NodeFilter.FILTER_ACCEPT
+    },
+  })
+  const nodes = []
+  while (walker.nextNode()) nodes.push(walker.currentNode)
+  for (const node of nodes) {
+    const text = node.nodeValue
+    // Collect non-overlapping matches, earlier rules win on overlap.
+    const taken = []
+    const matches = []
+    for (const rule of TERM_RULES) {
+      rule.re.lastIndex = 0
+      let m
+      while ((m = rule.re.exec(text))) {
+        const s = m.index, e = s + m[0].length
+        if (!taken.some(([a, b]) => s < b && e > a)) {
+          taken.push([s, e])
+          matches.push({ s, e, str: m[0], rule })
+        }
+      }
+    }
+    if (!matches.length) continue
+    matches.sort((a, b) => a.s - b.s)
+    const frag = document.createDocumentFragment()
+    let pos = 0
+    for (const m of matches) {
+      if (m.s > pos) frag.appendChild(document.createTextNode(text.slice(pos, m.s)))
+      if (m.rule.url) {
+        const a = document.createElement('a')
+        a.className = 'term-link'
+        a.href = m.rule.url
+        a.target = '_blank'
+        a.rel = 'noopener'
+        a.textContent = m.str
+        frag.appendChild(a)
+      } else {
+        const span = document.createElement('span')
+        span.className = 'term-info'
+        span.appendChild(document.createTextNode(m.str))
+        const btn = document.createElement('button')
+        btn.className = 'term-i'
+        btn.type = 'button'
+        btn.setAttribute('aria-label', 'More about ' + m.str)
+        btn.textContent = 'i'
+        span.appendChild(btn)
+        const pop = document.createElement('span')
+        pop.className = 'term-pop'
+        pop.textContent = m.rule.desc
+        span.appendChild(pop)
+        frag.appendChild(span)
+      }
+      pos = m.e
+    }
+    if (pos < text.length) frag.appendChild(document.createTextNode(text.slice(pos)))
+    node.parentNode.replaceChild(frag, node)
+  }
+}
+
+// One delegated handler toggles ⓘ popovers (public pages only).
+if (window.parent === window) {
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest && e.target.closest('.term-i')
+    document.querySelectorAll('.term-info.open').forEach((el) => {
+      if (!btn || el !== btn.parentElement) el.classList.remove('open')
+    })
+    if (btn) btn.parentElement.classList.toggle('open')
+  })
+}
+
 // ---- Apply all ------------------------------------------------------------
 function applyOverlay(raw) {
   captureBaselines() // snapshot pristine DOM before the first mutation
@@ -168,6 +274,7 @@ function applyOverlay(raw) {
   try {
     localStorage.setItem(OVERLAY_CACHE_KEY, JSON.stringify(overlay))
   } catch {}
+  annotateTerms() // applyText resets innerHTML, so re-annotate after every apply
   document.dispatchEvent(new CustomEvent('nd:overlay-applied', { detail: { overlay } }))
 }
 
@@ -194,6 +301,7 @@ async function boot() {
   } catch {
     // Network failure: the static HTML + cached overlay still render fine.
   }
+  annotateTerms() // safety net: annotate even if no overlay ever applied
 }
 
 // Instant preview channel for the editor (only honored inside an iframe).

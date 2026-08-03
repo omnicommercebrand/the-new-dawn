@@ -175,6 +175,30 @@ export const PALETTES = [
       '--border-glow': '1px solid rgba(205, 185, 138, 0.3)',
     },
   },
+  {
+    id: 'vibrant-dawn',
+    name: 'Vibrant Dawn',
+    description: 'Deep sunrise-sky blue with vivid gold, coral and blush — the hero photo as a whole color scheme.',
+    swatch: ['#101a2c', '#f0b45a', '#ef8f7c'],
+    vars: {
+      '--deep-earth': '#101a2c',
+      '--forest': '#16233c',
+      '--forest-mist': '#243a54',
+      '--canopy': '#2e4a66',
+      '--sacred-gold': '#f0b45a',
+      '--gold-light': '#ffd98a',
+      '--gold-glow': 'rgba(240, 180, 90, 0.18)',
+      '--dawn-rose': '#ef8f7c',
+      '--dawn-blush': '#f6ad92',
+      '--warm-white': '#fdf6ea',
+      '--soft-cream': '#f4e9d8',
+      '--muted-text': '#a9b0c0',
+      '--overlay-dark': 'rgba(16, 26, 44, 0.75)',
+      '--overlay-medium': 'rgba(16, 26, 44, 0.5)',
+      '--border-subtle': '1px solid rgba(240, 180, 90, 0.18)',
+      '--border-glow': '1px solid rgba(240, 180, 90, 0.35)',
+    },
+  },
 ]
 
 export const DEFAULT_PALETTE_ID = 'sacred-earth'

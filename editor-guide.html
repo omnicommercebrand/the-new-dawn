@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Edit Your Website — A New Dawn</title>
+  <meta name="description" content="A simple, friendly guide to editing the A New Dawn website — words, photos, colors, and order. No tech skills needed.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --deep-earth: #0b1a0b;
+      --forest: #132613;
+      --forest-mist: #1e3a2a;
+      --canopy: #2a4f3a;
+      --sacred-gold: #c9a84c;
+      --gold-light: #e4cc7a;
+      --gold-glow: rgba(201, 168, 76, 0.15);
+      --dawn-rose: #c47a6e;
+      --dawn-blush: #d4967a;
+      --warm-white: #f5f0e6;
+      --soft-cream: #ede6d6;
+      --muted-text: #a89f8f;
+      --font-display: 'Cormorant Garamond', 'Georgia', serif;
+      --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+      --border-subtle: 1px solid rgba(201, 168, 76, 0.15);
+      --border-glow: 1px solid rgba(201, 168, 76, 0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      font-family: var(--font-body);
+      background: var(--deep-earth);
+      color: var(--warm-white);
+      line-height: 1.75;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(900px 500px at 80% -10%, rgba(201,168,76,0.10), transparent 60%),
+        radial-gradient(700px 500px at 0% 110%, rgba(196,122,110,0.08), transparent 60%);
+    }
+    ::selection { background: var(--sacred-gold); color: var(--deep-earth); }
+    a { color: var(--sacred-gold); text-decoration: none; transition: color .2s ease; }
+    a:hover { color: var(--gold-light); }
+
+    .wrap { max-width: 760px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 2rem) 5rem; }
+
+    .hero { text-align: center; padding-bottom: 2.5rem; border-bottom: var(--border-subtle); margin-bottom: 2.5rem; }
+    .eyebrow {
+      font-family: var(--font-body); font-weight: 500; letter-spacing: 0.28em;
+      text-transform: uppercase; font-size: 0.72rem; color: var(--sacred-gold);
+      margin-bottom: 1.1rem; opacity: 0.95;
+    }
+    h1 {
+      font-family: var(--font-display); font-weight: 300; line-height: 1.12;
+      font-size: clamp(2.3rem, 7vw, 3.6rem); color: var(--warm-white); letter-spacing: 0.01em;
+    }
+    h1 .sun { color: var(--sacred-gold); font-style: italic; }
+    .lede { color: var(--soft-cream); font-weight: 300; font-size: 1.08rem; max-width: 56ch; margin: 1.4rem auto 0; }
+
+    section { margin-top: 3rem; }
+    h2 {
+      font-family: var(--font-display); font-weight: 400; line-height: 1.2;
+      font-size: clamp(1.65rem, 4.5vw, 2.1rem); color: var(--warm-white); margin-bottom: 0.4rem;
+      display: flex; align-items: baseline; gap: 0.7rem;
+    }
+    h2 .num {
+      font-family: var(--font-body); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em;
+      color: var(--deep-earth); background: var(--sacred-gold); border-radius: 999px;
+      min-width: 1.9rem; height: 1.9rem; display: inline-flex; align-items: center; justify-content: center;
+      flex: none; transform: translateY(-0.15em);
+    }
+    h3 { font-family: var(--font-body); font-weight: 600; font-size: 1rem; color: var(--gold-light); margin: 1.6rem 0 0.5rem; letter-spacing: 0.01em; }
+    p { color: var(--soft-cream); font-weight: 300; margin-top: 0.85rem; }
+    strong { color: var(--warm-white); font-weight: 600; }
+    em { color: var(--gold-light); font-style: italic; }
+
+    ul, ol { margin: 0.85rem 0 0; padding-left: 1.35rem; color: var(--soft-cream); font-weight: 300; }
+    li { margin-top: 0.5rem; }
+    li::marker { color: var(--sacred-gold); }
+
+    code {
+      font-family: 'SFMono-Regular', ui-monospace, Menlo, monospace; font-size: 0.86em;
+      background: rgba(201,168,76,0.12); color: var(--gold-light);
+      padding: 0.12em 0.45em; border-radius: 5px; border: 1px solid rgba(201,168,76,0.18);
+    }
+
+    .card {
+      background: linear-gradient(160deg, rgba(30,58,42,0.55), rgba(19,38,19,0.55));
+      border: var(--border-subtle); border-radius: 18px; padding: 1.5rem 1.6rem; margin-top: 1.4rem;
+      backdrop-filter: blur(4px);
+    }
+    .note {
+      border-left: 3px solid var(--sacred-gold); background: rgba(201,168,76,0.07);
+      border-radius: 0 12px 12px 0; padding: 1rem 1.2rem; margin-top: 1.3rem;
+    }
+    .note p { margin: 0; color: var(--warm-white); }
+    .note.rose { border-left-color: var(--dawn-rose); background: rgba(196,122,110,0.08); }
+
+    .table-wrap { margin-top: 1.3rem; border: var(--border-subtle); border-radius: 14px; overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    th, td { text-align: left; padding: 0.85rem 1.1rem; border-bottom: 1px solid rgba(201,168,76,0.1); }
+    th { background: rgba(201,168,76,0.1); color: var(--gold-light); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    td { color: var(--soft-cream); font-weight: 300; }
+    tr:last-child td { border-bottom: none; }
+    td strong { color: var(--sacred-gold); font-weight: 600; }
+
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent); border: 0; margin: 3.5rem 0 0; }
+
+    .closing { text-align: center; margin-top: 3.5rem; }
+    .closing p { font-family: var(--font-display); font-style: italic; font-size: 1.4rem; color: var(--gold-light); }
+    .closing .sun { font-style: normal; }
+
+    .toplink { display: inline-block; margin-top: 2.5rem; font-size: 0.85rem; letter-spacing: 0.05em; }
+
+    @media (max-width: 520px) {
+      h2 { gap: 0.55rem; }
+      .card, .note { padding: 1.1rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+
+    <div class="hero">
+      <div class="eyebrow">A New Dawn</div>
+      <h1>How to Edit Your <span class="sun">Website</span></h1>
+      <p class="lede">A simple guide to changing words, swapping photos, choosing colors, and reordering things — no tech skills needed. You <strong>cannot break anything</strong>. Visitors only ever see what you choose to <strong>Publish</strong>, and you can always undo with <strong>History</strong>.</p>
+    </div>
+
+    <section>
+      <h2><span class="num">1</span> Getting In</h2>
+      <ol>
+        <li>Go to <a href="https://www.anewdawn.earth/editor"><strong>anewdawn.earth/editor</strong></a></li>
+        <li>Type your <strong>editor password</strong> and click <strong>Sign in</strong></li>
+      </ol>
+      <div class="note rose">
+        <p><strong>Your password:</strong> Ishan sent this to you privately on WhatsApp. Keep it somewhere safe and private — anyone with it can edit your site.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">2</span> The Lay of the Land</h2>
+      <p>When you sign in you'll see two halves:</p>
+      <ul>
+        <li><strong>Left side</strong> — your editing tools (the panels)</li>
+        <li><strong>Right side</strong> — a <strong>live preview</strong> of your site that updates as you type</li>
+      </ul>
+      <p>Along the top:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Button</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td><strong>? Help</strong></td><td>Opens a quick reminder of everything below</td></tr>
+            <tr><td><strong>View Live</strong></td><td>Opens your real, published site in a new tab</td></tr>
+            <tr><td><strong>Save Draft</strong></td><td>Saves your work privately (visitors don't see it yet)</td></tr>
+            <tr><td><strong>Publish</strong></td><td>Makes your changes go live for everyone</td></tr>
+            <tr><td><strong>Logout</strong></td><td>Signs you out</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The tabs — <strong>Content · Theme · Arrange · Images · History</strong> — are the five things you can change. We'll go through each one.</p>
+      <div class="note">
+        <p><strong>Draft vs. Live (important):</strong> Everything you do here is a private <strong>draft</strong>. Your visitors keep seeing the old version until you click <strong>Publish</strong>. So feel free to experiment — nothing is public until you say so.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">3</span> Changing Words <span style="font-size:0.7em;color:var(--muted-text);font-family:var(--font-body);font-weight:300;">(Content tab)</span></h2>
+      <p>This is where you edit any text on the page.</p>
+      <h3>Two easy ways to edit</h3>
+      <ul>
+        <li><strong>Click the text right in the preview</strong> (right side). The editor jumps straight to that text box for you.</li>
+        <li>Or scroll the <strong>Content</strong> panel on the left and find the text box you want.</li>
+      </ul>
+      <h3>To make text bold or italic — no codes to type</h3>
+      <ol>
+        <li>Select the words you want to change (drag over them, or double-click a word)</li>
+        <li>Click <strong>B</strong> for bold or <strong>I</strong> for italic in the little toolbar above the box <em>(Shortcut: Ctrl/Cmd + B for bold, Ctrl/Cmd + I for italic)</em></li>
+        <li><strong>↵</strong> adds a line break · <strong>Clear format</strong> removes all bold/italic</li>
+      </ol>
+      <p>As you type, the preview on the right updates instantly.</p>
+      <div class="note">
+        <p>See a small <strong>reset</strong> link next to a text box? That means you've changed it. Click <strong>reset</strong> to put that one piece of text back to how it was.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">4</span> Pictures <span style="font-size:0.7em;color:var(--muted-text);font-family:var(--font-body);font-weight:300;">(Images tab)</span></h2>
+      <p>Each editable image has its own box. To change one:</p>
+      <ul>
+        <li><strong>Have the photo on your computer?</strong> Click <strong>Upload</strong> and choose it. (Up to 15 MB · JPG, PNG, WebP, GIF.)</li>
+        <li><strong>Have a web link to the photo?</strong> Paste the link (it must start with <code>https://</code>) into the box.</li>
+      </ul>
+      <p>The preview updates right away. Made a mistake? Click <strong>Reset</strong> on that image to bring back the original.</p>
+      <div class="note">
+        <p><strong>Tip:</strong> large photos make your site slower. Square or landscape photos around 1500–2500 pixels wide look great and load fast.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">5</span> Colors &amp; Theme <span style="font-size:0.7em;color:var(--muted-text);font-family:var(--font-body);font-weight:300;">(Theme tab)</span></h2>
+      <ul>
+        <li><strong>Pick a palette:</strong> Choose one of the ready-made color sets and your whole site re-colors instantly. This is the easy, safe way to change the mood.</li>
+        <li><strong>Fine-tune a single color:</strong> Below the palettes you can nudge individual colors (like <em>Accent gold</em> or <em>Main text</em>) if you want. Each one has a <strong>reset</strong> to undo just that color.</li>
+      </ul>
+      <p>Try a few — the preview shows it live, and nothing is public until you Publish.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">6</span> Reorder &amp; Hide <span style="font-size:0.7em;color:var(--muted-text);font-family:var(--font-body);font-weight:300;">(Arrange tab)</span></h2>
+      <ul>
+        <li><strong>Reorder:</strong> Use the <strong>↑ / ↓</strong> arrows to move items (like the tags under your headline) up or down.</li>
+        <li><strong>Show / Hide:</strong> Flip a switch <strong>off</strong> to hide a whole section from your site, or <strong>on</strong> to show it again. Hiding never deletes anything — flip it back anytime.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="num">7</span> Saving &amp; Publishing</h2>
+      <p>There's a difference, and it matters:</p>
+      <ul>
+        <li><strong>Save Draft</strong> — tucks your work away safely so you can come back later. Visitors still see the old version.</li>
+        <li><strong>Publish</strong> — pushes everything live for the world to see.</li>
+      </ul>
+      <p>A small <strong>dot</strong> appears when you have unsaved changes. If you try to leave with unsaved work, the browser will warn you.</p>
+      <div class="card">
+        <p style="margin:0;"><strong>Normal rhythm:</strong> edit → glance at the preview → <strong>Publish</strong> when you're happy.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">8</span> Undo Anything <span style="font-size:0.7em;color:var(--muted-text);font-family:var(--font-body);font-weight:300;">(History tab)</span></h2>
+      <p>Every time you Publish, we keep a snapshot. If something doesn't look right:</p>
+      <ol>
+        <li>Open the <strong>History</strong> tab</li>
+        <li>Find an earlier version by its date and time</li>
+        <li>Click <strong>Restore</strong> — it loads that version back as your draft to review</li>
+        <li>Happy with it? Click <strong>Publish</strong></li>
+      </ol>
+      <p>So you can always roll back to a good version. Nothing is ever truly lost.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">9</span> On Your Phone</h2>
+      <p>The editor works on your phone too. Because the screen is smaller, you'll see an <strong>Edit / Preview</strong> switch:</p>
+      <ul>
+        <li><strong>Edit</strong> — shows the editing tools</li>
+        <li><strong>Preview</strong> — shows your site</li>
+      </ul>
+      <p>Tapping a piece of text in Preview jumps you to <strong>Edit</strong> for that text. Everything else works the same.</p>
+    </section>
+
+    <hr class="divider">
+
+    <section>
+      <h2 style="display:block;">Quick Answers</h2>
+      <ul>
+        <li><strong>Will I break the site?</strong> No. Drafts are private, and History lets you undo.</li>
+        <li><strong>I changed something by accident.</strong> Click <strong>reset</strong> next to that item, or use <strong>History</strong> to restore an earlier version.</li>
+        <li><strong>My change isn't showing on the real site.</strong> You probably saved a draft but didn't <strong>Publish</strong>. Click <strong>Publish</strong>.</li>
+        <li><strong>I forgot my password.</strong> Message Ishan on WhatsApp and he'll send it to you again.</li>
+      </ul>
+    </section>
+
+    <div class="closing">
+      <p>One move at a time. Edit, preview, publish. You've got this. <span class="sun">🌅</span></p>
+      <a class="toplink" href="https://www.anewdawn.earth/editor">→ Open the editor</a>
+    </div>
+
+  </main>
+</body>
+</html>
