@@ -415,7 +415,7 @@ p.eyebrow, p.hero__eyebrow { max-width: none; }
   letter-spacing: 0.4em;
   text-indent: 0.4em; /* cancel trailing letter-spacing for true optical center */
   color: var(--sacred-gold);
-  margin-bottom: var(--space-md);
+  margin-bottom: 0.5rem;
   width: 100%;
   text-align: center;
   display: block;

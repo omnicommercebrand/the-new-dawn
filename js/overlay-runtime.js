@@ -79,8 +79,11 @@ function applyText(overlay) {
     if (key == null) return
     let html =
       key in map ? sanitizeHtml(map[key]) : baseText.has(key) ? baseText.get(key) : el.innerHTML
-    // Nêhiyaw carries a circumflex the editor's keyboard flow tends to drop.
-    html = html.replace(/Nehiyaw/g, 'Nêhiyaw')
+    // Nêhiyaw carries a circumflex the editor's keyboard flow tends to drop,
+    // and Misty spells her spirit name with the eñe.
+    html = html.replace(/Nehiyaw/g, 'Nêhiyaw').replace(/Shakina/g, 'Shakiña')
+    // Typed double hyphens render as a true em-dash.
+    html = html.replace(/ -- /g, ' \u2014 ')
     // Footer location reads as a place list — render separators as middots
     // even when a period was typed ("Canada . Hawaii" -> "Canada · Hawaii").
     if (key.endsWith('.footer.location')) html = html.replace(/ \. /g, ' · ')
