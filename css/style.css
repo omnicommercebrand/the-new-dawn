@@ -367,6 +367,7 @@ p.eyebrow, p.hero__eyebrow { max-width: none; }
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -410,7 +411,7 @@ p.eyebrow, p.hero__eyebrow { max-width: none; }
 .hero__eyebrow {
   font-family: var(--font-body);
   font-size: 0.7rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.4em;
   text-indent: 0.4em; /* cancel trailing letter-spacing for true optical center */
@@ -466,12 +467,13 @@ p.eyebrow, p.hero__eyebrow { max-width: none; }
 .hero__offerings span {
   font-family: var(--font-body);
   font-size: 0.8rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.08em;
-  color: var(--sacred-gold);
-  opacity: 0.8;
+  color: var(--warm-white);
+  opacity: 1;
   white-space: nowrap;
 }
+.hero__offerings span:not(:last-child)::after { color: var(--sacred-gold); }
 
 .hero__offerings span:not(:last-child)::after {
   content: "\00b7";
@@ -1693,4 +1695,39 @@ p.eyebrow, p.hero__eyebrow { max-width: none; }
   font-size: 1.25rem;
   color: var(--soft-cream);
   margin: 0 auto 0.9rem;
+}
+
+
+/* --- Hero readability: soft vignette behind the text block (no hard box) --- */
+.hero__content::before {
+  content: '';
+  position: absolute;
+  inset: -8% -12%;
+  background: radial-gradient(closest-side, rgba(8, 12, 8, 0.5) 0%, rgba(8, 12, 8, 0.28) 55%, transparent 100%);
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(6px);
+}
+.hero__title,
+.hero__subtitle,
+.hero__eyebrow,
+.hero__offerings,
+.hero__offerings * {
+  text-shadow: 0 1px 4px rgba(6, 10, 6, 0.85), 0 3px 22px rgba(6, 10, 6, 0.6);
+}
+
+/* --- Mobile nav: always readable, solid when scrolled --- */
+@media (max-width: 768px) {
+  .nav {
+    background: linear-gradient(180deg, rgba(11, 26, 11, 0.82) 0%, rgba(11, 26, 11, 0.45) 70%, transparent 100%);
+  }
+  .nav--scrolled {
+    background: rgba(11, 26, 11, 0.96);
+  }
+  /* Tighter hero rhythm on phones */
+  .hero__subtitle { margin-bottom: var(--space-md); }
+  .hero__offerings { gap: 0.35rem 1.1rem; margin-bottom: var(--space-md); }
+  .hero__offerings span { font-size: 0.78rem; }
+  .hero__content { padding-top: 5.5rem; padding-bottom: 3.5rem; }
 }

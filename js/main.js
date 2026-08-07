@@ -26,6 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.getElementById('nav');
   let lastScroll = 0;
 
+  // Sentinel observer: toggles the solid nav background reliably on every
+  // browser (mobile Safari included), independent of scroll event delivery.
+  const navSentinel = document.createElement('div');
+  navSentinel.style.cssText = 'position:absolute;top:90px;left:0;height:1px;width:1px;pointer-events:none;';
+  document.body.prepend(navSentinel);
+  new IntersectionObserver(([entry]) => {
+    nav.classList.toggle('nav--scrolled', !entry.isIntersecting);
+  }).observe(navSentinel);
+
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
 
