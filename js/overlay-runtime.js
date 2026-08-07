@@ -171,17 +171,29 @@ const TERM_RULES = [
   { re: /Body\s+Code/g, url: 'https://discoverhealing.com/the-body-code/' },
   { re: /Belief\s+Code/g, url: 'https://discoverhealing.com/the-belief-code/' },
   { re: /(?:Advanced\s+)?PSYCH-K®?/g, url: 'https://www.psych-k.com/about/' },
-  { re: /Registered\s+Massage\s+Therap(?:ist|y)/g,
+  { re: /Registered\s+Massage\s+Therap(?:ist|y)/g, key: 'glossary.rmt',
     desc: 'A licensed healthcare professional trained in therapeutic bodywork — assessment and treatment of soft tissue and joints to restore, maintain and rehabilitate physical function.' },
-  { re: /Healing\s+Guide/g,
+  { re: /Healing\s+Guide/g, key: 'glossary.healingguide',
     desc: 'One who walks beside you through your own healing — holding space, reflecting truth, and supporting your remembrance of the healer within.' },
-  { re: /Gridworker/g,
+  { re: /Gridworker/g, key: 'glossary.gridworker',
     desc: 'One who works with the energetic grid of the Earth — harmonizing land, sacred sites and spaces so that people and places can thrive.' },
-  { re: /Rainbow\s+Energy\s+Healing/g,
+  { re: /Rainbow\s+Energy\s+Healing/g, key: 'glossary.rainbow',
     desc: 'A full-spectrum energy healing modality — restoring sensation, vitality and flow by working with the complete range of the body’s subtle energies.' },
-  { re: /\bCoach\b/g,
+  { re: /\bCoach\b/g, key: 'glossary.coach',
     desc: 'Certified coaching for transformation — clarity, accountability and aligned action in life, health and business.' },
+  { re: /Energy\s+Intuitive/g, key: 'glossary.intuitive',
+    desc: 'One who senses and works with subtle energy — reading what is unseen and supporting its movement toward balance.' },
+  { re: /Earth\s+Steward/g, key: 'glossary.steward',
+    desc: 'A caretaker of the land — tending the wellbeing of places, spaces and the Earth herself.' },
 ]
+
+// A description edited in the editor (hidden Term Descriptions block) wins
+// over the built-in default.
+function glossaryDesc(rule) {
+  const el = rule.key && document.querySelector('.glossary-defs [data-edit="' + rule.key + '"]')
+  const t = el && el.textContent.trim()
+  return t || rule.desc
+}
 
 function annotateTerms() {
   if (window.parent !== window) return // never inside the editor preview
@@ -193,7 +205,7 @@ function annotateTerms() {
       for (let e = n.parentElement; e && e !== root; e = e.parentElement) {
         const t = e.tagName
         if (t === 'A' || t === 'SCRIPT' || t === 'STYLE' || t === 'BUTTON' || t === 'FORM') return NodeFilter.FILTER_REJECT
-        if (e.classList.contains('term-link') || e.classList.contains('term-info')) return NodeFilter.FILTER_REJECT
+        if (e.classList.contains('term-link') || e.classList.contains('term-info') || e.classList.contains('glossary-defs')) return NodeFilter.FILTER_REJECT
       }
       return NodeFilter.FILTER_ACCEPT
     },
@@ -242,7 +254,7 @@ function annotateTerms() {
         span.appendChild(btn)
         const pop = document.createElement('span')
         pop.className = 'term-pop'
-        pop.textContent = m.rule.desc
+        pop.textContent = glossaryDesc(m.rule)
         span.appendChild(pop)
         frag.appendChild(span)
       }
