@@ -46,6 +46,7 @@ const BORDER_VARS = new Set(['--border-subtle', '--border-glow'])
 
 const PAGES = [
   { id: 'index', label: 'Home', url: '/' },
+  { id: 'begin-here', label: 'Begin Here', url: '/begin-here' },
   { id: 'mission', label: 'Mission', url: '/mission' },
   { id: 'offerings', label: 'Offerings', url: '/offerings' },
   { id: 'events', label: 'Events', url: '/events' },

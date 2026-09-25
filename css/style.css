@@ -322,7 +322,7 @@ p.eyebrow, p.hero__eyebrow { max-width: none; }
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
   .nav__toggle { display: flex; }
 
   .nav__links {
