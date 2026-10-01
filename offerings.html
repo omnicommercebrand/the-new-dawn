@@ -341,10 +341,21 @@
         <input type="hidden" name="_next" value="https://www.anewdawn.earth/offerings">
         <input type="text" name="name" placeholder="Your name" required>
         <input type="email" name="email" placeholder="Your email" required>
-        <input type="tel" name="phone" placeholder="Phone (optional)">
+        <input type="tel" name="phone" placeholder="Mobile phone (for texting, optional)">
         <textarea name="message" rows="4" placeholder="What&rsquo;s alive for you?" required></textarea>
+        <fieldset class="sms-consent" id="sms-optin">
+          <legend data-edit="offerings.cta.smslegend" data-edit-label="SMS Consent Heading">Text messages (optional)</legend>
+          <label><input type="checkbox" name="sms_customer_care" value="yes"> <span data-edit="offerings.cta.smsopt1" data-edit-label="SMS Option 1">Yes, I consent to receive customer care messages from A New Dawn.Earth</span></label>
+          <label><input type="checkbox" name="sms_marketing" value="yes"> <span data-edit="offerings.cta.smsopt2" data-edit-label="SMS Option 2">Yes, I consent to receive marketing text messages from A New Dawn.Earth</span></label>
+          <label><input type="checkbox" name="sms_decline" value="yes"> <span data-edit="offerings.cta.smsopt3" data-edit-label="SMS Option 3">No, I do not want to receive any text messages from A New Dawn.Earth</span></label>
+        </fieldset>
         <button type="submit" class="btn btn--primary">Send to Misty</button>
       </form>
+      <p class="sms-disclosure reveal" data-edit="offerings.cta.smsdisclosure" data-edit-label="SMS Disclosure">
+        A New Dawn.Earth (doing business as A New Dawn.Earth) would like your consent to send customer care and/or marketing text message communications from (808) 444-5134 to your mobile number listed above. Customer care messages may include responses to messages you send us, as well as information relevant to your relationship with us. Marketing messages may include discount codes, special deals or texts promoting our products/services.<br><br>
+        Consent is not a condition of purchase. Message frequency varies. Message and data rates may apply. Reply &lsquo;STOP&rsquo; to unsubscribe at any time. Reply &lsquo;HELP&rsquo; for assistance or more information.<br><br>
+        We do not share your mobile opt-in information with anyone. Our combined Privacy Policy and Messaging Terms and Conditions are available at <a href="https://www.anewdawn.earth/begin-here#sms-policy">https://www.anewdawn.earth/begin-here</a>.
+      </p>
       <div class="social-row reveal" style="justify-content:center;margin-top:var(--space-lg);">
         <a href="https://www.facebook.com/zentuary.ca" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.6V3.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.7v8h3z"/></svg></a>
         <!-- TODO: unhide when Misty sends her links -->

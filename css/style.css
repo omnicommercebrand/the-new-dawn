@@ -1731,3 +1731,47 @@ p.eyebrow, p.hero__eyebrow { max-width: none; }
   .hero__offerings span { font-size: 0.78rem; }
   .hero__content { padding-top: 5.5rem; padding-bottom: 3.5rem; }
 }
+
+
+/* --- SMS consent (contact form) --- */
+.sms-consent {
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem 1rem;
+  text-align: left;
+}
+.sms-consent legend {
+  padding: 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sacred-gold);
+}
+.sms-consent label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.85rem;
+  color: var(--soft-cream);
+  line-height: 1.5;
+  cursor: pointer;
+}
+.sms-consent label:last-child { margin-bottom: 0; }
+.sms-consent input[type="checkbox"] {
+  margin-top: 0.2rem;
+  width: 15px;
+  height: 15px;
+  flex: none;
+  accent-color: var(--sacred-gold);
+}
+.sms-disclosure {
+  max-width: 560px;
+  margin: var(--space-md) auto 0;
+  font-size: 0.74rem;
+  line-height: 1.7;
+  color: var(--muted-text);
+  text-align: left;
+}
+.sms-disclosure a { color: var(--sacred-gold); }
